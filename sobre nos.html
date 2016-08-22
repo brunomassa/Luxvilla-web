@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nome da empresa</title>
+
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<style>
+
+body{
+	/*Correçao de um bug no body*/
+	margin-top:0;
+	margin-left:0;
+	margin-right:0;
+	margin-bottom:0;
+}
+	#menu {
+	/*menu*/
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #651D31;/*cor do menu*/
+	z-index: 3;
+	position: absolute;
+	margin-top: 40px;
+	margin-left: 60px;
+	border-radius: 5px;
+	width: 90%;
+
+}
+
+#menu li {
+    float: right;/*alinhamento dos links*/
+}
+
+#menu li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    background-color: #3D121C;
+}
+
+p{
+	/*estilo do paragrafo*/
+	margin-left:20px;
+	margin-top:20px;
+}
+
+.pcaixa{
+	/*estilo do paragrafo*/
+	margin-left:20px;
+	margin-top:20px;
+	text-align:center;
+	font-size: 16px
+}
+
+.caixacasas{
+
+	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
+     box-shadow: 0px 0px 4px 0px #ffffff;
+	 margin-top:40px; 
+	 margin-left:20px;
+	 margin-right:20px;
+	 float:left;
+	 border-radius: 5px;
+	 background:#FFF;
+	 box-shadow:2px 2px 4px 1px #666;
+	 width:95%
+	
+}
+
+.caixacasas a:hover{
+	opacity:0.8;
+}
+
+.imagenscaixas{
+	border-top-left-radius:5px; 
+	border-top-right-radius:5px;
+	
+}
+
+footer { 
+
+/* Footer */
+   bottom:0;
+   width:100%;
+background:#651D31; 
+height:258px;
+}
+	
+</style>
+
+</head>
+
+<body bgcolor="#CCC">
+<ul id="menu">
+  <li style="float:left"><a href="http://brunomassa.esy.es/">Lux Villa</a></li>
+  <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
+  <li><a href="http://brunomassa.esy.es/#casas">Casas</a></li>
+  
+  <li><a href="http://brunomassa.esy.es/">In&iacute;cio</a></li>
+</ul>
+<div style="background:#FFF">
+<img src="logo.jpg" width="100%" height="500">
+</div>
+<div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="conteudo">
+<div class="caixacasas">
+<p class="pcaixa">A imobiliária LuxVilla especializou-se na venda de imóveis de luxo em terras portuguesas. Começou a sua caminhada em 2003 na cidade do Porto, oferecendo aos seus compradores varias tipologias com vistas alternativas sobre aquela que é apelidada de cidade invicta. Em 2008, ano em que abrangemos a cidade de Braga, também conhecida por Bracara Augusta sempre seguindo ideais de qualidade e de excelência. Querendo cada vez mais, levar o seu nome a outros níveis 7 anos mais tarde , depois de Braga, chegamos à denominada “ Veneza portuguesa”, Aveiro, a cidade dos ovos moles, onde nos encontramos ainda em fase de expansão mas sempre com o objetivo de oferecer o melhor.</p>
+</div>
+
+<div class="caixacasas">
+<h2 style="text-align:center">Parceria douro azul</h2>
+<p class="pcaixa">Ás primeiras semanas do decorrer de 2015 e de mãos dadas com a “Douro Azul”, iniciamos uma parceria. Em que, alternadamente, a equipa de vendas visita semanalmente os cruzeiros da mesma, onde apresenta os imoveis que temos à disposição daqueles que queiram usufruir do solo português.</p>
+</div>
+</div>
+<footer id="contactos">
+        <p style="font-style:italic"><font color="#651D31">Contactos</font></p>
+        <div style="margin-top:30px; margin-left:90px; font-style:italic;">
+        <blockquote>
+         
+</footer>
+</body>
+</html>

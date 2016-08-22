@@ -1,0 +1,178 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Nome da empresa</title>
+
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<style>
+
+body{
+	/*Correçao de um bug no body*/
+	margin-top:0;
+	margin-left:0;
+	margin-right:0;
+	margin-bottom:0;
+}
+		#menu {
+	/*menu*/
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #651D31;/*cor do menu*/
+	z-index: 3;
+	position: absolute;
+	margin-top: 40px;
+	margin-left: 60px;
+	border-radius: 5px;
+	width: 90%;
+
+}
+
+#menu li {
+    float: right;/*alinhamento dos links*/
+}
+
+#menu li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    background-color: #3D121C;
+}
+
+p{
+	/*estilo do paragrafo*/
+	margin-left:20px;
+	margin-top:20px;
+}
+
+.pcaixa{
+	/*estilo do paragrafo*/
+	margin-left:20px;
+	margin-top:20px;
+	text-align:center;
+}
+
+.caixacasas{
+
+	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
+     box-shadow: 0px 0px 4px 0px #ffffff;
+	 margin-top:40px; 
+	 margin-left:20px;
+	 margin-right:20px;
+	 float:left;
+	 border-radius: 5px;
+	 background:#FFF;
+	 box-shadow:2px 2px 4px 1px #666;
+	 width:95%
+	
+}
+
+.caixacasas a:hover{
+	opacity:0.8;
+}
+
+.imagenscaixas{
+	border-top-left-radius:5px; 
+	border-top-right-radius:5px;
+	
+}
+
+footer { 
+
+/* Footer */
+   bottom:0;
+   width:100%;
+background:#651D31; 
+height:258px;
+}
+	
+</style>
+
+</head>
+
+<body bgcolor="#CCC">
+<ul id="menu">
+  <li style="float:left"><a href="http://brunomassa.esy.es/">Lux Villa</a></li>
+  <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
+  <li><a href="http://brunomassa.esy.es/#casas">Casas</a></li>
+  
+  <li><a href="http://brunomassa.esy.es/">In&iacute;cio</a></li>
+</ul>
+<!-- Start cssSlider -->
+		<link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
+		<!--[if IE]><link rel="stylesheet" href="cssslider_files/csss_engine1/ie.css"><![endif]-->
+		<!--[if lte IE 9]><script type="text/javascript" src="cssslider_files/csss_engine1/ie.js"></script><![endif]-->
+		<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class='csslider1 autoplay '>
+		<input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide' >
+		<input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
+		<input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' >
+		<input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
+		<input name="cs_anchor1" id='cs_pause1_0' type="radio" class='cs_anchor pause'>
+		<input name="cs_anchor1" id='cs_pause1_1' type="radio" class='cs_anchor pause'>
+		<input name="cs_anchor1" id='cs_pause1_2' type="radio" class='cs_anchor pause'>
+		<ul>
+			<li class="cs_skeleton"><img style="width: 100%;" src="fotos/casa7/apart1_1.PNG"></li>
+			<li class='num0 img slide'>  <a href="google.com" target="_self"><img src="fotos/casa7/apart1_1.PNG" alt='Casa x' title='Casa x' /> </a> </li>
+			<li class='num1 img slide'>  <a href="google.com" target="_self"><img src="fotos/casa7/apart1_2.PNG" alt='Casa y' title='Casa y' /> </a> </li>
+			<li class='num2 img slide'>  <a href="google.com" target="_self"><img src="fotos/casa7/apart1_3.PNG" alt='Casa z' title='Casa z' /> </a> </li>
+		</ul><div class="cs_engine"></div>
+		<div class='cs_arrowprev'>
+			<label class='num0' for='cs_slide1_0'><span><i></i><b></b></span></label>
+			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
+			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
+		</div>
+		<div class='cs_arrownext'>
+			<label class='num0' for='cs_slide1_0'><span><i></i><b></b></span></label>
+			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
+			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
+		</div>
+		</div>
+		<!-- End cssSlider-->
+        <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="conteudo">
+<div class="caixacasas">
+<p class="pcaixa">
+Preço: 1.200.000€
+<br><br>
+Zona: Porto
+<br><br>
+Moradia histórica, a poucos minutos a pé do mar.  reabilitada, transformando-se em dois magníficos e contemporâneos andares moradias. Dentro de um condomínio fechado com cerca de 1000 m2 de jardim, a moradia possui toda estrutura moderna e prática dos dias actuais: áreas sociais com quase 100 m2, três lugares de garagem, quatro suites, e simultaneamente mantém os tectos, paredes e lareiras originais da moradia. É constituída por 5 quartos, 6 casas de banho, piscina interior e uma garagem com capacidade para 3 carros. 
+</p>
+
+</div>
+</div>
+<footer id="contactos">
+        <p style="font-style:italic"><font color="#651D31">Contactos</font></p>
+        <div style="margin-top:30px; margin-left:90px; font-style:italic;">
+        <blockquote>
+          <p><font color="#651D31" size="+2">Contactos</font></p>
+        </blockquote>
+        <p><font color="#651D31" size="+1">Telefone:</font></p>
+        <p><font color="#651D31" size="+1">Fax:</font></p>
+        <p><font color="#651D31" size="+1">E-mail:</font></p>
+     
+        </div>
+</footer>
+</body>
+</html>
