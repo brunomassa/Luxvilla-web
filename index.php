@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html>
 <head>
-    <title>Lux Villa</title>
-    <style>
+<meta charset="utf-8">
+<title>Lux Villa</title>
+<style>
 
 body{
 	/*Correçao de um bug no body*/
@@ -99,8 +100,9 @@ height:258px;
 	
 </style>
 </head>
+
 <body bgcolor="#CCC">
-  <ul id="menu">
+<ul id="menu">
   <li style="float:left"><a href="#">Lux Villa</a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="http://brunomassa.esy.es/#casas">Casas</a></li>
@@ -110,11 +112,10 @@ height:258px;
   
   
 </ul>
-    		<!-- Start cssSlider -->
-		<link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
-		<!--[if IE]><link rel="stylesheet" href="cssslider_files/csss_engine1/ie.css"><![endif]-->
-		<!--[if lte IE 9]><script type="text/javascript" src="cssslider_files/csss_engine1/ie.js"></script><![endif]-->
-		<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class='csslider1 autoplay '>
+
+<link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
+
+<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class='csslider1 autoplay '>
 		<input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide' >
 		<input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
 		<input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' >
@@ -144,93 +145,55 @@ height:258px;
 			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
 		</div>
 		</div>
-		<!-- End cssSlider-->
-        <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa1.html">
-          <img width="250px" height="200px" src="casa1.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">1.100.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Braga</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa2.html">
-          <img width="250px" height="200px" src="casa2.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">1.800.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Vieira do Minho, Braga</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa3.html">
-          <img width="250px" height="200px" src="casa3.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">1.700.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Braga</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa4.html">
-          <img width="250px" height="200px" src="avatar2.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">900,000,00 &euro;</p>
-          <p style="margin-top: 10px !important;">Aveiro</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa5.html">
-          <img width="250px" height="200px" src="casa5.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">1.150.000.00 &euro;</p>
-          <p style="margin-top: 10px !important;"> 
+<div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
 
-Aveiro</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa6.html">
-          <img width="250px" height="200px" src="avatar4.PNG" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">1.600.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Porto</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa7.html">
-          <img width="250px" height="200px" src="casa7.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">1.200.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Porto</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa8.html">
-          <img width="250px" height="200px" src="casa8.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">3.200.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Porto</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa9.html">
-          <img width="250px" height="200px" src="casa9.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">2.600.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Porto</p>
-          </div>
-          
-          </div>
-          <div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa10.html">
-          <img width="250px" height="200px" src="casa10.jpg" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">1.600.000 &euro;</p>
-          <p style="margin-top: 10px !important;">Porto</p>
-          </div>
-          
-          </div>
-        </div>
-        
-        <footer id="contactos">
+<?php
+$servername = "mysql.hostinger.pt";
+
+$username = "u460723307_massa";
+
+$password = "marianaraiodesol";
+
+$dbname = "u460723307_app";
+
+
+// Create connection
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+
+if (!$conn) {
+
+    die("Connection failed: " . mysqli_connect_error());
+
+}
+
+
+$sql = "SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas";
+
+$result = mysqli_query($conn, $sql);
+
+$rows = array();
+
+    
+while($row = mysqli_fetch_assoc($result)) 
+{
+	 /*echo " - Name: " . $row["local"]. " " . $row["preco"]. "<br>";*/
+	
+    echo '<div class="caixacasas">
+          <div id="imagem" style="display:inline-block;"><a href="'. $row["linkcasa"].'">
+          <img width="250px" height="200px" src="'.$row["imgURL"].'" class="imagenscaixas"></a>
+          <p style="margin-top: 10px !important;">'. $row["local"].'</p>'.
+          '<p style="margin-top: 10px !important;">'. $row["preco"].'</p>
+          </div></div>';
+}
+
+
+mysqli_close($conn);
+?>
+</div>
+<footer id="contactos">
         <p style="font-style:italic"><font color="#651D31">Contactos</font></p>
         <div style="margin: 0 auto;  font-style:italic; width: 50%; padding-top:40px;">
         <blockquote>
@@ -243,5 +206,6 @@ Aveiro</p>
 </svg><font size="5" color="#FFFFFF"> github (Android)</font></span></button></a>
         </div>
 </footer>
+
 </body>
 </html>
