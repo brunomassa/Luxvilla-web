@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Nome da empresa</title>
-
+<link href="styles/styles.css" rel="stylesheet">
 <script
 src="http://maps.googleapis.com/maps/api/js">
 </script>
@@ -19,113 +19,6 @@ function initialize() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-
-<style>
-
-body{
-	/*Correçao de um bug no body*/
-	margin-top:0;
-	margin-left:0;
-	margin-right:0;
-	margin-bottom:0;
-}
-		#menu {
-	/*menu*/
-	list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #651D31;/*cor do menu*/
-	z-index: 3;
-	position: absolute;
-	margin-top: 40px;
-	margin-left: 60px;
-	border-radius: 5px;
-	width: 90%;
-
-}
-
-#menu li {
-    float: right;/*alinhamento dos links*/
-}
-
-#menu li a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#menu li a:hover {
-    background-color: #3D121C;
-}
-
-p{
-	/*estilo do paragrafo*/
-	margin-left:20px;
-	margin-top:20px;
-}
-
-.pcaixa{
-	/*estilo do paragrafo*/
-	margin-left:20px;
-	margin-top:20px;
-	text-align:center;
-}
-
-.caixacasas{
-
-	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
-     box-shadow: 0px 0px 4px 0px #ffffff;
-	 margin-top:40px; 
-	 margin-left:20px;
-	 margin-right:20px;
-	 float:left;
-	 border-radius: 5px;
-	 background:#FFF;
-	 box-shadow:2px 2px 4px 1px #666;
-	 width:95%
-	
-}
-
-.caixacasas a:hover{
-	opacity:0.8;
-}
-
-.imagenscaixas{
-	border-top-left-radius:5px; 
-	border-top-right-radius:5px;
-	
-}
-
-.btn{
-	background-color:#3D121C; 
-	border-color:#3D121C; 
-	border-radius:4px; 
-	border:none; 
-	line-height: 43px;
-	box-shadow:2px 2px 10px 1px #3D121C;
-}
-
-.btn:hover{
-	opacity:0.8;
-}
-.btn:active{
-	box-shadow:none;
-}
-
-footer { 
-
-/* Footer */
-   bottom:0;
-   width:100%;
-background:#651D31; 
-height:258px;
-}
-	
-</style>
-
 </head>
 
 <body bgcolor="#CCC">
@@ -135,6 +28,11 @@ height:258px;
   <li><a href="http://brunomassa.esy.es/#casas">Casas</a></li>
   
   <li><a href="http://brunomassa.esy.es/">In&iacute;cio</a></li>
+  
+  <form style="float:right; margin-right:5px;" action="searchresults.php" method="post">
+	<input type="search" placeholder="Pesquisar casas..." name="q">
+</form>
+ 
 </ul>
 <!-- Start cssSlider.com -->
 		<link rel="stylesheet" href="cssslidercasa1_files/csss_engine1/style.css">

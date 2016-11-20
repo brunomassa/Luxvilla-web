@@ -43,7 +43,7 @@ if ($conn->connect_error) {
 }
 
 
-$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas";
+$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();

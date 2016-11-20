@@ -8,7 +8,7 @@
 
 <body bgcolor="#CCC">
 <ul id="menu">
-  <li style="float:left"><a href="#">Lux Villa</a></li>
+  <li style="float:left"><a href="http://brunomassa.esy.es/">Lux Villa</a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="http://brunomassa.esy.es/#casas">Casas</a></li>
   
@@ -74,7 +74,7 @@ if ($conn->connect_error) {
 }
 
 
-$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas";
+$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
