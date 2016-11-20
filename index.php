@@ -14,7 +14,7 @@
   
   <li><a href="http://brunomassa.esy.es/">In&iacute;cio</a></li>
   
-  <form style="float:right; margin-right:5px;" action="searchresults.php" method="post">
+  <form style="float:right; margin-right:5px;" action="http://brunomassa.esy.es/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
  
@@ -60,7 +60,6 @@ define("username","u460723307_massa");
 define("password","marianaraiodesol");
 define("dbname","u460723307_app");
 
-
 // Create connection
 
 $conn =new mysqli(servername, username, password, dbname);
@@ -72,7 +71,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 
 }
-
 
 $sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC";
 

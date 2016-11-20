@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Resultados da pesquisa</title>
-<link href="styles/styles.css" rel="stylesheet">
+<link href="../styles/styles.css" rel="stylesheet">
 </head>
 
 <body bgcolor="#CCC">
@@ -15,7 +15,7 @@
   
   <li><a href="http://brunomassa.esy.es/">In&iacute;cio</a></li>
   
-  <form style="float:right; margin-right:5px;" action="searchresults.php" method="post">
+  <form style="float:right; margin-right:5px;" action="http://brunomassa.esy.es/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
  
