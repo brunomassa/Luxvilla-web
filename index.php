@@ -4,13 +4,58 @@
 <meta charset="utf-8">
 <title>Lux Villa</title>
 <link href="styles/styles.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+	// hide #back-top first
+	$("#back-top").hide();
+	
+	// fade in #back-top
+	$(function () {
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 650) {
+				$('#back-top').fadeIn();
+			} else {
+				$('#back-top').fadeOut();
+			}
+		});
+
+		// scroll body to 0px on click
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
+
+});
+</script>
+<script>
+    // Document ready shorthand statement
+    $(function() {
+      // Select link by id and add click event
+      $('#casalink').click(function() {
+
+        // Animate Scroll to #bottom
+        $('html,body').animate({
+          scrollTop: $("#casas").offset().top }, // Tell it to scroll to the top #bottom
+          800 // How long scroll will take in milliseconds
+        );
+
+        // Prevent default behavior of link
+        return false;
+      });
+    });
+  </script>
 </head>
 
 <body bgcolor="#CCC">
 <ul id="menu">
   <li style="float:left"><a href="http://brunomassa.esy.es/">Lux Villa</a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
-  <li><a href="http://brunomassa.esy.es/#casas">Casas</a></li>
+  <li><a href="#casas" id="casalink">Casas</a></li>
   
   <li><a href="http://brunomassa.esy.es/">In&iacute;cio</a></li>
   
@@ -51,8 +96,7 @@
 			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
 			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
 		</div>
-		</div>
-<div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
+		</div><div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
 
 <?php
 define("servername","mysql.hostinger.pt");
@@ -110,5 +154,7 @@ mysqli_close($conn);
         </div>
 </footer>
 
-</body>
+<p id="back-top">
+		<a href="#top"><span></span></a>
+	</p></body>
 </html>
