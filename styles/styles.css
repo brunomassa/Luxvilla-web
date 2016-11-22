@@ -48,6 +48,7 @@ p{
 	margin-left:20px;
 	margin-top:20px;
 	text-align:center;
+	width: 21cm;
 }
 
 .caixacasas{
@@ -71,6 +72,19 @@ p{
 	border-top-right-radius:5px;
 	
 }
+
+.caixaconteudo{
+	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
+     box-shadow: 0px 0px 4px 0px #ffffff;
+	 margin-top:20px; 
+	 margin-left:20%;
+	 float:left;
+	 border-radius: 5px;
+	 background:#FFF;
+	 box-shadow:2px 2px 4px 1px #666;
+	
+}
+
 .caixacasassearchresults{
 	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
      box-shadow: 0px 0px 4px 0px #ffffff;
