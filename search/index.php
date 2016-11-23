@@ -4,6 +4,34 @@
 <meta charset="utf-8">
 <title>Resultados da pesquisa</title>
 <link href="../styles/styles.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+	// hide #back-top first
+	$("#back-top").hide();
+	
+	// fade in #back-top
+	$(function () {
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 650) {
+				$('#back-top').fadeIn();
+			} else {
+				$('#back-top').fadeOut();
+			}
+		});
+
+		// scroll body to 0px on click
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
+
+});
+</script>
 </head>
 
 <body bgcolor="#CCC">
@@ -50,6 +78,7 @@ $stmt->execute();
 $stmt->store_result();
 $stmt->bind_result($id, $imgurl, $local, $preco, $infocasa, $linkcasa);
 
+echo '<p style="margin-left:5%;"><b>Resultados da pesquisa de: '.$query.'</b></p>';
     
 while($stmt->fetch()) 
 {
@@ -84,5 +113,8 @@ mysqli_close($conn);
 </svg><font size="5" color="#FFFFFF"> github (Android)</font></span></button></a>
         </div>
 </footer>
+<p id="back-top">
+		<a href="#top"><span></span></a>
+	</p>
 </body>
 </html>
