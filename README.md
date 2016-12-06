@@ -1,10 +1,10 @@
 # Luxvilla-web
 website of luxvilla ( educational only )
 <p align="center">
-  <img src="http://brunomassa.esy.es/logo.jpg"/>
+  <img src="http://brunoferreira.esy.es/logo.jpg"/>
 </p>
 
-<a href="http://brunomassa.esy.es/">Demo</a>
+<a href="http://brunoferreira.esy.es/">Demo</a>
 <br><br><br>
 <p align="center">
   <img src="http://brunomassa.esy.es/inicioweb.jpeg" width="720"/>
