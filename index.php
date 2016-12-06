@@ -53,13 +53,13 @@ $(document).ready(function(){
 
 <body bgcolor="#CCC">
 <ul id="menu">
-  <li style="float:left"><a href="http://brunomassa.esy.es/">Lux Villa</a></li>
+  <li style="float:left"><a href="http://brunoferreira.esy.es/">Lux Villa</a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="#casas" id="casalink">Casas</a></li>
   
-  <li><a href="http://brunomassa.esy.es/">In&iacute;cio</a></li>
+  <li><a href="http://brunoferreira.esy.es/">In&iacute;cio</a></li>
   
-  <form style="float:right; margin-right:5px;" action="http://brunomassa.esy.es/search/" method="post">
+  <form style="float:right; margin-right:5px;" action="http://brunoferreira.esy.es/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
  
@@ -100,9 +100,9 @@ $(document).ready(function(){
 
 <?php
 define("servername","mysql.hostinger.pt");
-define("username","u460723307_massa");
-define("password","marianaraiodesol");
-define("dbname","u460723307_app");
+define("username","u825039931_lux");
+define("password","familia1234");
+define("dbname","u825039931_app");
 
 // Create connection
 
