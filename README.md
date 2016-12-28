@@ -7,11 +7,8 @@ website of luxvilla ( educational only )
 <a href="http://brunoferreira.esy.es/">Demo</a>
 <br><br><br>
 <p align="center">
-  <img src="http://brunomassa.esy.es/inicioweb.jpeg" width="720"/>
+  <img src="http://brunoferreira.esy.es/paginainicial.jpeg" width="720"/>
 </p>
 <p align="center">
-<img src="http://brunomassa.esy.es/infoweb.jpeg" width="720"/>
-</p>
-<p align="center">
-<img src="http://brunomassa.esy.es/aboutweb.jpeg" width="720"/>
+<img src="http://brunoferreira.esy.es/paginacasa.jpeg" width="720"/>
 </p>
