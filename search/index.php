@@ -56,12 +56,12 @@ $(document).ready(function(){
 <div style="min-height:100px;">
 <ul id="menu">
   <li style="float:left"><a href="http://brunoferreira.esy.es/">Lux Villa</a></li>
-  <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
+  <li><a href="http://brunoferreira.esy.es/sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="http://brunoferreira.esy.es/#casas">Casas</a></li>
   
   <li><a href="http://brunoferreira.esy.es/">In&iacute;cio</a></li>
   
-  <form style="float:right; margin-right:5px;" action="http://brunomassa.esy.es/search/" method="post">
+  <form style="float:right; margin-right:5px;" action="http://brunoferreira.esy.es/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
  

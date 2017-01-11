@@ -21,7 +21,7 @@
 <head>
 <meta charset="utf-8">
 <title>Nome da empresa</title>
-
+<link rel="stylesheet" href="styles/styles.css">
 <script
 src="http://maps.googleapis.com/maps/api/js">
 </script>
@@ -37,114 +37,6 @@ function initialize() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-
-<style>
-
-body{
-	/*Correçao de um bug no body*/
-	margin-top:0;
-	margin-left:0;
-	margin-right:0;
-	margin-bottom:0;
-}
-	#menu {
-	/*menu*/
-	list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #651D31;/*cor do menu*/
-	z-index: 3;
-	position: absolute;
-	margin-top: 40px;
-	margin-left: 60px;
-	border-radius: 5px;
-	width: 90%;
-
-}
-
-#menu li {
-    float: right;/*alinhamento dos links*/
-}
-
-#menu li a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#menu li a:hover {
-    background-color: #3D121C;
-}
-
-p{
-	/*estilo do paragrafo*/
-	margin-left:20px;
-	margin-top:20px;
-}
-
-.pcaixa{
-	/*estilo do paragrafo*/
-	margin-left:20px;
-	margin-top:20px;
-	text-align:center;
-	font-size: 16px
-}
-
-.caixacasas{
-
-	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
-     box-shadow: 0px 0px 4px 0px #ffffff;
-	 margin-top:40px; 
-	 margin-left:20px;
-	 margin-right:20px;
-	 float:left;
-	 border-radius: 5px;
-	 background:#FFF;
-	 box-shadow:2px 2px 4px 1px #666;
-	 width:95%
-	
-}
-
-.caixacasas a:hover{
-	opacity:0.8;
-}
-
-.imagenscaixas{
-	border-top-left-radius:5px; 
-	border-top-right-radius:5px;
-	
-}
-
-.btn{
-	background-color:#3D121C; 
-	border-color:#3D121C; 
-	border-radius:4px; 
-	border:none; 
-	line-height: 43px;
-	box-shadow:2px 2px 10px 1px #3D121C;
-}
-
-.btn:hover{
-	opacity:0.8;
-}
-.btn:active{
-	box-shadow:none;
-}
-
-footer { 
-
-/* Footer */
-   bottom:0;
-   width:100%;
-background:#651D31; 
-height:258px;
-}
-	
-</style>
-
 </head>
 
 <body bgcolor="#CCC">
@@ -154,16 +46,21 @@ height:258px;
   <li><a href="http://brunoferreira.esy.es/#casas">Casas</a></li>
   
   <li><a href="http://brunoferreira.esy.es/">In&iacute;cio</a></li>
+  
+  <form style="float:right; margin-right:5px;" action="http://brunoferreira.esy.es/search/" method="post">
+	<input type="search" placeholder="Pesquisar casas..." name="q">
+</form>
+ 
 </ul>
 <div style="background:#FFF">
 <img src="logo.jpg" width="100%" height="500">
 </div>
 <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="conteudo">
-<div class="caixacasas">
+<div class="caixaconteudo">
 <p class="pcaixa">A imobiliária LuxVilla especializou-se na venda de imóveis de luxo em terras portuguesas. Começou a sua caminhada em 2003 na cidade do Porto, oferecendo aos seus compradores varias tipologias com vistas alternativas sobre aquela que é apelidada de cidade invicta. Em 2008, ano em que abrangemos a cidade de Braga, também conhecida por Bracara Augusta sempre seguindo ideais de qualidade e de excelência. Querendo cada vez mais, levar o seu nome a outros níveis 7 anos mais tarde , depois de Braga, chegamos à denominada “ Veneza portuguesa”, Aveiro, a cidade dos ovos moles, onde nos encontramos ainda em fase de expansão mas sempre com o objetivo de oferecer o melhor.</p>
 </div>
 
-<div class="caixacasas">
+<div class="caixaconteudo">
 <h2 style="text-align:center">Parceria douro azul</h2>
 <p class="pcaixa">Ás primeiras semanas do decorrer de 2015 e de mãos dadas com a “Douro Azul”, iniciamos uma parceria. Em que, alternadamente, a equipa de vendas visita semanalmente os cruzeiros da mesma, onde apresenta os imoveis que temos à disposição daqueles que queiram usufruir do solo português.</p>
 </div>
