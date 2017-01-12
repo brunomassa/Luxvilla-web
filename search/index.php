@@ -20,7 +20,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Resultados da pesquisa</title>
+<title>Resultados de <?php $title=$_POST["q"]; echo $title;?></title>
 <link href="../styles/styles.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
