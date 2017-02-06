@@ -57,21 +57,33 @@ $(document).ready(function(){
 
 });
 </script>
+<script>
+function myFunction() {
+    var x = document.getElementById("menusite");
+    if (x.className === "menu") {
+        x.className += " responsive";
+    } else {
+        x.className = "menu";
+    }
+}
+</script>
 </head>
 
 <body bgcolor="#CCC">
 <div style="min-height:100px;">
-<ul id="menu">
-  <li style="float:left"><a href="http://brunoferreira.esy.es/">Lux Villa</a></li>
-  <li><a href="http://brunoferreira.esy.es/sobre nos.html">Sobre n&oacute;s</a></li>
+<ul class="menu" id="menusite">
+  <li ><a href="http://brunoferreira.esy.es"><img src="../favicon.ico"></a></li>
+  <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="http://brunoferreira.esy.es/#casas">Casas</a></li>
   
-  <li><a href="http://brunoferreira.esy.es/">In&iacute;cio</a></li>
+  <li><a href="http://brunoferreira.esy.es">In&iacute;cio</a></li>
+  <li class="icon">
+    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+  </li>
   
-  <form style="float:right; margin-right:5px;" action="http://brunoferreira.esy.es/search/" method="post">
+  <form style="float:right; margin-right:5px; margin-top:7px;" action="http://brunoferreira.esy.es/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
- 
 </ul>
 </div>
 <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">

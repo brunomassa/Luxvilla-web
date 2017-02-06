@@ -40,57 +40,85 @@ $(document).ready(function(){
 	// fade in #back-top
 	$(function () {
 		$(window).scroll(function () {
-			if ($(this).scrollTop() > 650) {
+			if ($(this).scrollTop() > 500) {
 				$('#back-top').fadeIn();
 			} else {
 				$('#back-top').fadeOut();
 			}
-		});
-
-		// scroll body to 0px on click
-		$('#back-top a').click(function () {
-			$('body,html').animate({
-				scrollTop: 0
-			}, 800);
-			return false;
 		});
 	});
 
 });
 </script>
 <script>
-    // Document ready shorthand statement
-    $(function() {
-      // Select link by id and add click event
-      $('#casalink').click(function() {
-
-        // Animate Scroll to #bottom
-        $('html,body').animate({
-          scrollTop: $("#casas").offset().top }, // Tell it to scroll to the top #bottom
-          800 // How long scroll will take in milliseconds
-        );
-
-        // Prevent default behavior of link
-        return false;
-      });
+$(document).ready(function () {
+    //$(document).on("scroll", onScroll);
+    
+    //smoothscroll
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        $('a').each(function () {
+            //$(this).removeClass('active');
+        })
+        //$(this).addClass('active');
+      
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 800, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
     });
-  </script>
+});
+
+/*function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $('#menu a').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            $('#menu ul li a').removeClass("active");
+            currLink.addClass("active");
+        }
+        else{
+            currLink.removeClass("active");
+        }
+    });
+}*/
+</script>
+<script>
+function myFunction() {
+    var x = document.getElementById("menusite");
+    if (x.className === "menu") {
+        x.className += " responsive";
+    } else {
+        x.className = "menu";
+    }
+}
+</script>
 </head>
 
 <body bgcolor="#CCC">
-<ul id="menu">
-  <li style="float:left"><a href="http://brunoferreira.esy.es/">Lux Villa</a></li>
+<ul class="menu" id="menusite">
+  <li ><a href="http://brunoferreira.esy.es"><img src="favicon.ico"></a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
-  <li><a href="#casas" id="casalink">Casas</a></li>
+  <li><a href="#casas">Casas</a></li>
   
-  <li><a href="http://brunoferreira.esy.es/">In&iacute;cio</a></li>
+  <li><a href="#inicio">In&iacute;cio</a></li>
+  <li class="icon">
+    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+  </li>
   
-  <form style="float:right; margin-right:5px;" action="http://brunoferreira.esy.es/search/" method="post">
+  <form style="float:right; margin-right:5px; margin-top:7px;" action="http://brunoferreira.esy.es/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
- 
 </ul>
-
+<div id="inicio">
 <link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
 
 <script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class='csslider1 autoplay '>
@@ -122,7 +150,9 @@ $(document).ready(function(){
 			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
 			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
 		</div>
-		</div><div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
+		</div>
+        </div>
+<div id="casas" style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;">
 
 <?php
 define("servername","mysql.hostinger.pt");
@@ -165,8 +195,8 @@ while($stmt->fetch())
 $stmt->close();
 mysqli_close($conn);
 ?>
-</div>
-<footer id="contactos">
+</div>    
+        <footer id="contactos">
         <p style="font-style:italic"><font color="#651D31">Contactos</font></p>
         <div style="margin: 0 auto;  font-style:italic; width: 50%; padding-top:40px;">
         <blockquote>
@@ -179,8 +209,7 @@ mysqli_close($conn);
 </svg><font size="5" color="#FFFFFF"> github (Android)</font></span></button></a>
         </div>
 </footer>
-
 <p id="back-top">
-		<a href="#top"><span></span></a>
+		<a href="#inicio"><span></span></a>
 	</p></body>
 </html>
