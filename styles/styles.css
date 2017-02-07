@@ -116,7 +116,8 @@ p{
 	margin-left:20px;
 	margin-top:20px;
 	text-align:center;
-	width: 21cm;
+	max-width:21cm;
+	width: auto;
 }
 
 .caixacasas{
@@ -150,7 +151,23 @@ p{
 	 border-radius: 5px;
 	 background:#FFF;
 	 box-shadow:2px 2px 4px 1px #666;
+	 overflow:hidden;
 	
+}
+@media screen and (max-width:680px){
+	.caixaconteudo{
+	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
+     box-shadow: 0px 0px 4px 0px #ffffff;
+	 margin-top:20px; 
+	 margin-left:5%;
+	 margin-right:5%;
+	 float:left;
+	 border-radius: 5px;
+	 background:#FFF;
+	 box-shadow:2px 2px 4px 1px #666;
+	 overflow:hidden;
+	
+}
 }
 
 .caixacasassearchresults{
@@ -236,6 +253,44 @@ input:-moz-placeholder {
 }
 input::-webkit-input-placeholder {
 	color: #999;
+}
+
+@media screen and (max-width:680px){
+	input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #fff url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border:none;
+	padding: 9px 10px 9px 32px;
+	width: 1px;
+	height:28px;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 100px;
+	background-color: #fff;
+}
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+	
 }
 
 #back-top {
