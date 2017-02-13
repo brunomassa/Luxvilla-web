@@ -136,7 +136,7 @@ function myFunction() {
 			<li class='num2 img slide'>  <a href="casa10.html" target="_self"><img src="casa10.jpg" alt='Porto' title='Porto' /> </a> </li>
 		</ul><div class="cs_engine"></div>
 		<div class='cs_description'>
-			<label class='num0'><span class="cs_title"><span class="cs_wrapper">1.100.000 &euro;</span></span></label>
+			<label class='num0'><span class="cs_title"><span class="cs_wrapper">1.700.000 &euro;</span></span></label>
 			<label class='num1'><span class="cs_title"><span class="cs_wrapper">3.200.000 &euro;</span></span></label>
 			<label class='num2'><span class="cs_title"><span class="cs_wrapper">1.600.000 &euro;</span></span></label>
 		</div>
@@ -172,7 +172,21 @@ if ($conn->connect_error) {
 
 }
 
-$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC";
+$itens_pagina=10;
+$num_itens="SELECT COUNT('id') FROM casas";
+
+$stmt=$conn->prepare($num_itens);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($itens);
+$stmt->fetch();
+
+$paginas=ceil($itens/$itens_pagina);
+
+$page=(isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+$inicio=($page-1)*$itens_pagina;
+
+$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC LIMIT $inicio, $itens_pagina";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -182,8 +196,6 @@ $stmt->bind_result($id, $imgurl, $local, $preco, $infocasa, $linkcasa);
     
 while($stmt->fetch()) 
 {
-	 /*echo " - Name: " . $row["local"]. " " . $row["preco"]. "<br>";*/
-	
     echo '<div class="caixacasas">
           <div id="imagem" style="display:inline-block;"><a href="'. $linkcasa.'">
           <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixas"></a>
@@ -191,14 +203,39 @@ while($stmt->fetch())
           '<p style="margin-top: 10px !important;">'. $preco.'</p>
           </div></div>';
 }
-
+if($paginas>=1){
+	echo '<div class="center">';
+	echo '<div class="pagination">';
+	if($page==1){
+		echo '<a href="#">&laquo;</a>';
+	}else{
+		echo '<a href="?page='.($page-1).'">&laquo;</a>';
+	}
+	for($i=1;$i<=$paginas;$i++){
+		if($i==$page){
+			echo '<a href="#" class="active">'.$i.'</a>';
+		}else{
+			echo '<a href="?page='.$i.'">'.$i.'</a>';
+		}
+	}
+	if($page==$paginas){
+		echo '<a href="#">&raquo;</a>';
+	}else{
+		echo '<a href="?page='.($page+1).'">&raquo;</a>';
+	}
+	echo '</div>';
+	echo '</div>';
+}else{
+	echo '<div class="center">';
+	echo 'sem resultados para mostrar';
+	echo '</div>';
+}
 $stmt->close();
 mysqli_close($conn);
 ?>
-</div>    
+</div>   
         <footer id="contactos">
-        <p style="font-style:italic"><font color="#651D31">Contactos</font></p>
-        <div style="margin: 0 auto;  font-style:italic; width: 50%; padding-top:40px;">
+        <div class="center" style="padding-top:40px;">
         <blockquote>
           <a target="new" href="https://github.com/brunomassa/Luxvilla-web"><button class="btn"><span><svg style="width:39px;height:39px;" viewBox="-3 -14 35 35">
     <path fill="#ffffff" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />

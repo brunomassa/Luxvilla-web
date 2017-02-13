@@ -209,7 +209,7 @@ p{
 
 footer { 
 /* Footer */
-margin-top:10px;
+margin-top:20px;
    bottom:0;
    width:100%;
    background:#651D31;
@@ -326,4 +326,44 @@ input::-webkit-input-placeholder {
 }
 #back-top a:hover span {
 	background-color: #3d121c; opacity:0.8;
+}
+
+.pagination {
+    display: inline-block;
+	margin-top:30px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #fff;
+	background-color: #fff;
+}
+
+.pagination a.active {
+    background-color: #651D31;
+    color: white;
+    border: 1px solid #651D31;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #651D31;
+	border: 1px solid #651D31;
+	color: white;
+}
+
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.center {
+    text-align: center;
 }
