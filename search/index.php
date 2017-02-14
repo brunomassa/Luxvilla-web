@@ -108,7 +108,21 @@ if ($conn->connect_error) {
 }
 
 
-$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC";
+$itens_pagina=10;
+$num_itens="SELECT COUNT('id') FROM casas";
+
+$stmt=$conn->prepare($num_itens);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($itens);
+$stmt->fetch();
+
+$paginas=ceil($itens/$itens_pagina);
+
+$page=(isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+$inicio=($page-1)*$itens_pagina;
+
+$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC LIMIT $inicio, $itens_pagina";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -132,7 +146,33 @@ while($stmt->fetch())
           '</div></div>';
 	 }
 }
-
+if($paginas>=1){
+	echo '<div class="center" style="width:100%;">';
+	echo '<div class="pagination">';
+	if($page==1){
+		echo '<a href="#">&laquo;</a>';
+	}else{
+		echo '<a href="?page='.($page-1).'">&laquo;</a>';
+	}
+	for($i=1;$i<=$paginas;$i++){
+		if($i==$page){
+			echo '<a href="#" class="active">'.$i.'</a>';
+		}else{
+			echo '<a href="?page='.$i.'">'.$i.'</a>';
+		}
+	}
+	if($page==$paginas){
+		echo '<a href="#">&raquo;</a>';
+	}else{
+		echo '<a href="?page='.($page+1).'">&raquo;</a>';
+	}
+	echo '</div>';
+	echo '</div>';
+}else{
+	echo '<div class="center" style="width:100%;">';
+	echo 'sem resultados para mostrar';
+	echo '</div>';
+}
 $stmt->close();
 mysqli_close($conn);
 ?>
