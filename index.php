@@ -193,7 +193,7 @@ $stmt->execute();
 $stmt->store_result();
 $stmt->bind_result($id, $imgurl, $local, $preco, $infocasa, $linkcasa);
 
-    
+echo '<div style="width:100%; display:table; margin: 0 auto;">';  
 while($stmt->fetch()) 
 {
     echo '<div class="caixacasas">
@@ -203,8 +203,9 @@ while($stmt->fetch())
           '<p style="margin-top: 10px !important;">'. $preco.'</p>
           </div></div>';
 }
+echo '</div>';
 if($paginas>=1){
-	echo '<div class="center">';
+	echo '<div class="center" style="width:100%;">';
 	echo '<div class="pagination">';
 	if($page==1){
 		echo '<a href="#">&laquo;</a>';
@@ -226,7 +227,7 @@ if($paginas>=1){
 	echo '</div>';
 	echo '</div>';
 }else{
-	echo '<div class="center">';
+	echo '<div class="center" style="width:100%;">';
 	echo 'sem resultados para mostrar';
 	echo '</div>';
 }

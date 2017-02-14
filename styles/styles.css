@@ -90,7 +90,7 @@ ul.menu li.icon {display: none;}
 }
 
 @media screen and (max-width:680px) {
-  ul.menu.responsive {position: relative;}
+  ul.menu.responsive {position: fixed;}
   ul.menu.responsive li.icon {
     position: absolute;
     right: 0;
