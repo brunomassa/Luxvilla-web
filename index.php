@@ -45,6 +45,11 @@ $(document).ready(function(){
 			} else {
 				$('#back-top').fadeOut();
 			}
+			if ($(this).scrollTop() > 5) {
+		document.getElementById("menusite").style.boxShadow = "0px 3px 6px grey";
+			} else {
+				document.getElementById("menusite").style.boxShadow = "0px 0px 0px grey";
+			}
 		});
 	});
 
