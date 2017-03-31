@@ -78,7 +78,7 @@ function myFunction() {
 <div style="min-height:100px;">
 <ul class="menu" id="menusite">
   <li ><a href="http://brunoferreira.esy.es"><img src="../favicon.ico"></a></li>
-  <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
+  <li><a href="http://brunoferreira.esy.es/sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="http://brunoferreira.esy.es/#casas">Casas</a></li>
   
   <li><a href="http://brunoferreira.esy.es">In&iacute;cio</a></li>
