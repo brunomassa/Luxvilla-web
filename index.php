@@ -160,10 +160,10 @@ function myFunction() {
 <div id="casas" style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;">
 
 <?php
-define("servername","mysql.hostinger.pt");
-define("username","u825039931_lux");
-define("password","familia1234");
-define("dbname","u825039931_app");
+define("servername","yourservername");
+define("username","yourusername");
+define("password","yourpassword");
+define("dbname","yourdbname");
 
 // Create connection
 
@@ -202,7 +202,7 @@ echo '<div style="width:100%; display:table; margin: 0 auto;">';
 while($stmt->fetch()) 
 {
     echo '<div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="'. $linkcasa.'">
+          <div id="imagem" style="display:inline-block;"><a href="casa.php?id='.$id.'">
           <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixas"></a>
           <p style="margin-top: 10px !important;">'. $local.'</p>'.
           '<p style="margin-top: 10px !important;">'. $preco.'</p>

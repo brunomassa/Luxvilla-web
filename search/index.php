@@ -93,10 +93,10 @@ function myFunction() {
 </div>
 <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
 <?php
-define("servername","mysql.hostinger.pt");
-define("username","u825039931_lux");
-define("password","familia1234");
-define("dbname","u825039931_app");
+define("servername","yourservername");
+define("username","yourusername");
+define("password","yourpassword");
+define("dbname","yourdbname");
 
 $query=$_POST["q"];
 
