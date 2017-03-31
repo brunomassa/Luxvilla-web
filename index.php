@@ -202,7 +202,7 @@ echo '<div style="width:100%; display:table; margin: 0 auto;">';
 while($stmt->fetch()) 
 {
     echo '<div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa.php?id='.$id.'">
+          <div id="imagem" style="display:inline-block;"><a href="casa.php?id='.$linkcasa.'">
           <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixas"></a>
           <p style="margin-top: 10px !important;">'. $local.'</p>'.
           '<p style="margin-top: 10px !important;">'. $preco.'</p>
