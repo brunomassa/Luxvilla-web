@@ -37,9 +37,6 @@ html, body{
 	height:60px;
 	top:0;
     position:fixed;
-	-webkit-box-shadow: 0px 0px 4px 0px #ffffff;
-     box-shadow: 0px 0px 1px 0px #ffffff;
-	 box-shadow:1px 1px 1px 1px #999;
 
 }
 
@@ -121,14 +118,13 @@ p{
 }
 
 .caixacasas{
-	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
-     box-shadow: 0px 0px 4px 0px #ffffff;
+	 -webkit-box-shadow: 3px 3px 6px rgba(50,50,50,0.28);
 	 margin-top:20px; 
 	 margin-left:20px; 
 	 float:left;
 	 border-radius: 5px;
 	 background:#FFF;
-	 box-shadow:2px 2px 4px 1px #666;
+	 box-shadow:3px 3px 6px rgba(50,50,50,0.28);
 	
 }
 
@@ -143,43 +139,40 @@ p{
 }
 
 .caixaconteudo{
-	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
-     box-shadow: 0px 0px 4px 0px #ffffff;
+	 -webkit-box-shadow: 3px 3px 6px rgba(50,50,50,0.28);
 	 margin-top:20px; 
 	 margin-left:20%;
 	 float:left;
 	 border-radius: 5px;
 	 background:#FFF;
-	 box-shadow:2px 2px 4px 1px #666;
+	 box-shadow:3px 3px 6px rgba(50,50,50,0.28);
 	 overflow:hidden;
 	
 }
 @media screen and (max-width:680px){
 	.caixaconteudo{
-	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
-     box-shadow: 0px 0px 4px 0px #ffffff;
+	 -webkit-box-shadow:3px 3px 6px rgba(50,50,50,0.28);
 	 margin-top:20px; 
 	 margin-left:5%;
 	 margin-right:5%;
 	 float:left;
 	 border-radius: 5px;
 	 background:#FFF;
-	 box-shadow:2px 2px 4px 1px #666;
+	 box-shadow:3px 3px 6px rgba(50,50,50,0.28);
 	 overflow:hidden;
 	
 }
 }
 
 .caixacasassearchresults{
-	 -webkit-box-shadow: 0px 0px 4px 0px #ffffff;
-     box-shadow: 0px 0px 4px 0px #ffffff;
+	 -webkit-box-shadow:3px 3px 6px rgba(50,50,50,0.28);
 	 margin-top:20px; 
 	 margin-left:20px;
 	 width:95%;
 	 float:left;
 	 border-radius: 5px;
 	 background:#FFF;
-	 box-shadow:2px 2px 4px 1px #666;	
+	 box-shadow:3px 3px 6px rgba(50,50,50,0.28);
 }
 
 .caixacasassearchresults a:hover{
@@ -187,8 +180,7 @@ p{
 }
 
 .imagenscaixassearchresult{
-	border-top-left-radius:5px; 
-	border-bottom-left-radius:5px;	
+	border-top-left-radius:5px; 	
 }
 
 .btn{

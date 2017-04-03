@@ -1,22 +1,4 @@
-﻿<!--  Copyright 2016 Bruno Massa  -->
-<!-- This file is part of LuxVilla.
-
-    LuxVilla is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    LuxVilla is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with LuxVilla.  If not, see <http://www.gnu.org/licenses/>.
-
- -->
-
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
 <meta name="theme-color" content="#651d31" />
@@ -27,8 +9,37 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
+<title><?php
+define("servername","localhost");
+define("username","root");
+define("password","");
+define("dbname","db_luxvilla");
 
-<title>Lux Villa</title>
+$id=$_GET['id'];
+
+// Create connection
+
+$conn =new mysqli(servername, username, password, dbname);
+
+// Check connection
+
+if ($conn->connect_error) {
+
+    die("Connection failed: " . $conn->connect_error);
+
+}
+
+$query="SELECT local,preco,infocasa FROM casas WHERE id=$id";
+
+$stmt=$conn->prepare($query);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($local, $preco, $info);
+$stmt->fetch();
+
+echo $local." - ".$preco;
+
+?></title>
 <link href="styles/styles.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
@@ -145,64 +156,121 @@ function myFunction() {
     }
 }
 </script>
+
 </head>
 
 <body bgcolor="#CCC">
 <ul class="menu" id="menusite">
-  <li ><a href="http://localhost/luxvilla-web/"><img src="favicon.ico"></a></li>
+  <li ><a href="http://localhost/luxvilla-web"><img src="favicon.ico"></a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="#casas">Casas</a></li>
   
-  <li><a href="#inicio">In&iacute;cio</a></li>
+  <li><a href="http://localhost/luxvilla-web">In&iacute;cio</a></li>
   <li class="icon">
     <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
   </li>
   
-  <form style="float:right; margin-right:5px; margin-top:7px;" action="http://localhost/luxvilla-web/search/" method="post">
+  <form style="float:right; margin-right:5px; margin-top:7px;" action="http://brunoferreira.esy.es/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
 </ul>
+<!--slider-->
 <div id="inicio">
-<link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
-
-<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class='csslider1 autoplay '>
-		<input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide' >
-		<input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
-		<input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' >
-		<input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
-		<input name="cs_anchor1" id='cs_pause1_0' type="radio" class='cs_anchor pause'>
-		<input name="cs_anchor1" id='cs_pause1_1' type="radio" class='cs_anchor pause'>
-		<input name="cs_anchor1" id='cs_pause1_2' type="radio" class='cs_anchor pause'>
-		<ul>
-			<li class="cs_skeleton"><img style="width: 100%;" src="casa3.jpg"></li>
-			<li class='num0 img slide'>  <a href="casa1.html" target="_self"><img src="casa1.jpg" alt='Braga' title='Braga' /> </a> </li>
-			<li class='num1 img slide'>  <a href="casa8.html" target="_self"><img src="casa8.jpg" alt='Porto' title='Porto' /> </a> </li>
-			<li class='num2 img slide'>  <a href="casa10.html" target="_self"><img src="casa10.jpg" alt='Porto' title='Porto' /> </a> </li>
-		</ul><div class="cs_engine"></div>
-		<div class='cs_description'>
-			<label class='num0'><span class="cs_title"><span class="cs_wrapper">1.700.000 &euro;</span></span></label>
-			<label class='num1'><span class="cs_title"><span class="cs_wrapper">3.200.000 &euro;</span></span></label>
-			<label class='num2'><span class="cs_title"><span class="cs_wrapper">1.600.000 &euro;</span></span></label>
-		</div>
-		<div class='cs_arrowprev'>
-			<label class='num0' for='cs_slide1_0'><span><i></i><b></b></span></label>
-			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
-			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
-		</div>
-		<div class='cs_arrownext'>
-			<label class='num0' for='cs_slide1_0'><span><i></i><b></b></span></label>
-			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
-			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
-		</div>
-		</div>
-        </div>
-<div id="casas" style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;">
-
 <?php
-define("servername","localhost");
-define("username","root");
-define("password","");
-define("dbname","db_luxvilla");
+// Create connection
+
+$conn =new mysqli(servername, username, password, dbname);
+
+// Check connection
+
+if ($conn->connect_error) {
+
+    die("Connection failed: " . $conn->connect_error);
+
+}
+
+$query="SELECT imgslider1,imgslider2,imgslider3,imgslider4 FROM casas WHERE id=$id";
+
+$stmt=$conn->prepare($query);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($imgslider1, $imgslider2, $imgslider3, $imgslider4);
+$stmt->fetch();
+
+if(!empty($imgslider4)){
+
+	echo'<link rel="stylesheet" href="cssslidercasa1_files/csss_engine1/style.css">
+			<!--[if IE]><link rel="stylesheet" href="cssslidercasa1_files/csss_engine1/ie.css"><![endif]-->
+			<!--[if lte IE 9]><script type="text/javascript" src="cssslidercasa1_files/csss_engine1/ie.js"></script><![endif]-->
+			 <div class="csslider1 autoplay">
+			<input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide" >
+			<input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide" >
+			<input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide" >
+			<input name="cs_anchor1" id="cs_slide1_3" type="radio" class="cs_anchor slide" >
+			<input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked>
+			<input name="cs_anchor1" id="cs_pause1_0" type="radio" class="cs_anchor pause">
+			<input name="cs_anchor1" id="cs_pause1_1" type="radio" class="cs_anchor pause">
+			<input name="cs_anchor1" id="cs_pause1_2" type="radio" class="cs_anchor pause">
+			<input name="cs_anchor1" id="cs_pause1_3" type="radio" class="cs_anchor pause">
+			<ul>
+				<li class="cs_skeleton"><img src="'.$imgslider1.'" style="width: 100%;"></li>
+				<li class="num0 img slide"> <img src="'.$imgslider1.'" alt="casa1_1" title="casa1_1" /></li>
+				<li class="num1 img slide"> <img src="'.$imgslider2.'" alt="casa1_2" title="casa1_2" /></li>
+				<li class="num2 img slide"> <img src="'.$imgslider3.'" alt="casa1_3" title="casa1_3" /></li>
+				<li class="num3 img slide"> <img src="'.$imgslider4.'" alt="casa1_4" title="casa1_4" /></li>
+			</ul>
+			
+			<div class="cs_arrowprev">
+				<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
+				<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
+				<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
+				<label class="num3" for="cs_slide1_3"><span><i></i><b></b></span></label>
+			</div>
+			<div class="cs_arrownext">
+				<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
+				<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
+				<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
+				<label class="num3" for="cs_slide1_3"><span><i></i><b></b></span></label>
+			</div>
+			</div>';
+}else{
+	echo '<link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
+		<!--[if IE]><link rel="stylesheet" href="cssslider_files/csss_engine1/ie.css"><![endif]-->
+		<!--[if lte IE 9]><script type="text/javascript" src="cssslider_files/csss_engine1/ie.js"></script><![endif]-->
+		<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class="csslider1 autoplay ">
+		<input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide" >
+		<input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide" >
+		<input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide" >
+		<input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked>
+		<input name="cs_anchor1" id="cs_pause1_0" type="radio" class="cs_anchor pause">
+		<input name="cs_anchor1" id="cs_pause1_1" type="radio" class="cs_anchor pause">
+		<input name="cs_anchor1" id="cs_pause1_2" type="radio" class="cs_anchor pause">
+		<ul>
+			<li class="cs_skeleton"><img style="width: 100%;" src="'.$imgslider1.'"></li>
+			<li class="num0 img slide">  <a href="google.com" target="_self"><img src="'.$imgslider1.'" alt="Casa x" title="Casa x" /> </a> </li>
+			<li class="num1 img slide">  <a href="google.com" target="_self"><img src="'.$imgslider2.'" alt="Casa y" title="Casa y" /> </a> </li>
+			<li class="num2 img slide">  <a href="google.com" target="_self"><img src="'.$imgslider3.'" alt="Casa z" title="Casa z" /> </a> </li>
+		</ul><div class="cs_engine"></div>
+		<div class="cs_arrowprev">
+			<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
+			<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
+			<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
+		</div>
+		<div class="cs_arrownext">
+			<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
+			<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
+			<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
+		</div>
+		</div>';
+}
+?>
+</div>
+ <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="conteudo">
+<div class="caixaconteudo">
+<p class="pcaixa">
+<?php
+
+$id=$_GET['id'];
 
 // Create connection
 
@@ -216,70 +284,27 @@ if ($conn->connect_error) {
 
 }
 
-$itens_pagina=10;
-$num_itens="SELECT COUNT('id') FROM casas";
+$query="SELECT local,preco,infocasa FROM casas WHERE id=$id";
 
-$stmt=$conn->prepare($num_itens);
+$stmt=$conn->prepare($query);
 $stmt->execute();
 $stmt->store_result();
-$stmt->bind_result($itens);
+$stmt->bind_result($local, $preco, $info);
 $stmt->fetch();
 
-$paginas=ceil($itens/$itens_pagina);
+echo "Local: ".$local;
+echo "<br><br>";
+echo "Preço: ".$preco;
+echo "<br><br>";
+echo $info;
 
-$page=(isset($_GET['page'])) ? (int)$_GET['page'] : 1;
-$inicio=($page-1)*$itens_pagina;
+//echo $local."<br><br>".$preco."<br><br>".$info;
 
-$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC LIMIT $inicio, $itens_pagina";
-
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($id, $imgurl, $local, $preco, $infocasa, $linkcasa);
-
-echo '<div style="width:100%; display:table; margin: 0 auto;">';  
-while($stmt->fetch()) 
-{
-    echo '<div class="caixacasas">
-          <div id="imagem" style="display:inline-block;"><a href="casa.php?id='. $id.'">
-          <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixas"></a>
-          <p style="margin-top: 10px !important;">'. $local.'</p>'.
-          '<p style="margin-top: 10px !important;">'. $preco.'</p>
-          </div></div>';
-}
-echo '</div>';
-if($paginas>=1){
-	echo '<div class="center" style="width:100%;">';
-	echo '<div class="pagination">';
-	if($page==1){
-		echo '<a href="#">&laquo;</a>';
-	}else{
-		echo '<a href="?page='.($page-1).'">&laquo;</a>';
-	}
-	for($i=1;$i<=$paginas;$i++){
-		if($i==$page){
-			echo '<a href="#" class="active">'.$i.'</a>';
-		}else{
-			echo '<a href="?page='.$i.'">'.$i.'</a>';
-		}
-	}
-	if($page==$paginas){
-		echo '<a href="#">&raquo;</a>';
-	}else{
-		echo '<a href="?page='.($page+1).'">&raquo;</a>';
-	}
-	echo '</div>';
-	echo '</div>';
-}else{
-	echo '<div class="center" style="width:100%;">';
-	echo 'sem resultados para mostrar';
-	echo '</div>';
-}
-$stmt->close();
-mysqli_close($conn);
 ?>
-</div>   
-        <footer id="contactos">
+</p>
+</div>
+</div>
+<footer id="contactos">
         <div class="center" style="padding-top:40px;">
         <blockquote>
           <a target="new" href="https://github.com/brunomassa/Luxvilla-web"><button class="btn"><span><svg style="width:39px;height:39px;" viewBox="-3 -14 35 35">
@@ -293,5 +318,6 @@ mysqli_close($conn);
 </footer>
 <p id="back-top">
 		<a href="#inicio"><span></span></a>
-	</p></body>
+	</p>
+</body>
 </html>

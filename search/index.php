@@ -39,6 +39,7 @@ $(document).ready(function(){
 	// fade in #back-top
 	$(function () {
 		$(window).scroll(function () {
+			
 			if ($(this).scrollTop() > 650) {
 				$('#back-top').fadeIn();
 			} else {
@@ -58,9 +59,51 @@ $(document).ready(function(){
 			}, 800);
 			return false;
 		});
+		
+		
 	});
 
 });
+</script>
+</script>
+<script>
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('#menusite').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('#menusite').fadeOut();
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('#menusite').fadeIn();
+        }
+    }
+    
+    lastScrollTop = st;
+}
 </script>
 <script>
 function myFunction() {
@@ -77,26 +120,26 @@ function myFunction() {
 <body bgcolor="#CCC">
 <div style="min-height:100px;">
 <ul class="menu" id="menusite">
-  <li ><a href="http://brunoferreira.esy.es"><img src="../favicon.ico"></a></li>
-  <li><a href="http://brunoferreira.esy.es/sobre nos.html">Sobre n&oacute;s</a></li>
-  <li><a href="http://brunoferreira.esy.es/#casas">Casas</a></li>
+  <li ><a href="http://localhost/luxvilla-web/"><img src="../favicon.ico"></a></li>
+  <li><a href="http://localhost/luxvilla-web/sobre nos.html">Sobre n&oacute;s</a></li>
+  <li><a href="http://localhost/luxvilla-web/#casas">Casas</a></li>
   
-  <li><a href="http://brunoferreira.esy.es">In&iacute;cio</a></li>
+  <li><a href="http://localhost/luxvilla-web/">In&iacute;cio</a></li>
   <li class="icon">
     <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
   </li>
   
-  <form style="float:right; margin-right:5px; margin-top:7px;" action="http://brunoferreira.esy.es/search/" method="post">
+  <form style="float:right; margin-right:5px; margin-top:7px;" action="http://localhost/luxvilla-web/search/" method="post">
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
 </ul>
 </div>
 <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
 <?php
-define("servername","yourservername");
-define("username","yourusername");
-define("password","yourpassword");
-define("dbname","yourdbname");
+define("servername","localhost");
+define("username","root");
+define("password","");
+define("dbname","db_luxvilla");
 
 $query=$_POST["q"];
 
@@ -145,7 +188,7 @@ while($stmt->fetch())
 	
 	 if(strpos($locallower,$querylower)!==false || strpos($precolower,$querylower)!==false || strpos($infocasalower,$querylower) !==false){
 		 echo '<div class="caixacasassearchresults">
-          <div id="imagem" style="display:inline-block;"><a href="'. $linkcasa.'">
+          <div id="imagem" style="display:inline-block;"><a href="casa.php?id='. $id.'">
           <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixassearchresult"></a>
           <p style="margin-top: 10px !important; float:right;">'. $local.'<br><br>'.$preco.'</p>'.
           '</div></div>';
