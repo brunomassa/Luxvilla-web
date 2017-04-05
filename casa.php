@@ -46,6 +46,7 @@ echo $local." - ".$preco;
 </head>
 
 <body bgcolor="#CCC">
+<header class="nav-down">
 <ul class="menu" id="menusite">
   <li ><a href="http://localhost/luxvilla-web"><img src="favicon.ico"></a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
@@ -60,6 +61,7 @@ echo $local." - ".$preco;
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
 </ul>
+</header>
 <!--slider-->
 <div id="inicio">
 <?php

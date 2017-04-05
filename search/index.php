@@ -35,6 +35,7 @@
 
 <body bgcolor="#CCC">
 <div style="min-height:100px;">
+<header class="nav-down">
 <ul class="menu" id="menusite">
   <li ><a href="http://localhost/luxvilla-web/"><img src="../favicon.ico"></a></li>
   <li><a href="http://localhost/luxvilla-web/sobre nos.html">Sobre n&oacute;s</a></li>
@@ -49,6 +50,7 @@
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
 </ul>
+</header>
 </div>
 <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
 <?php

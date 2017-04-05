@@ -34,7 +34,8 @@
 </head>
 
 <body bgcolor="#CCC">
-<ul class="menu" id="menusite">
+<header class="nav-down">
+    <ul class="menu" id="menusite">
   <li ><a href="http://localhost/luxvilla-web/"><img src="favicon.ico"></a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="#casas">Casas</a></li>
@@ -48,6 +49,7 @@
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
 </ul>
+</header>
 <div id="inicio">
 <link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
 
