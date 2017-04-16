@@ -15,7 +15,39 @@
     along with LuxVilla.  If not, see <http://www.gnu.org/licenses/>.
 
  -->
+<?php
+define("servername","localhost");
+define("username","root");
+define("password","");
+define("dbname","db_luxvilla");
 
+$sql ="SELECT id, imgURL, local,preco,infocasa,linkcasa FROM casas ORDER BY casas.id DESC";
+
+$conn =new mysqli(servername, username, password, dbname);
+
+// Check connection
+
+if ($conn->connect_error) {
+
+    die("Connection failed: " . $conn->connect_error);
+
+}
+
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($id, $imgurl, $local, $preco, $infocasa, $linkcasa);
+
+while($stmt->fetch()) 
+{
+
+if(isset($_COOKIE["heart".$id])) {
+		
+}else{
+	setcookie("heart".$id, 0, time() + (86400 * 30), "/");
+}
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -63,9 +95,9 @@
 		<input name="cs_anchor1" id='cs_pause1_2' type="radio" class='cs_anchor pause'>
 		<ul>
 			<li class="cs_skeleton"><img style="width: 100%;" src="casa3.jpg"></li>
-			<li class='num0 img slide'>  <a href="casa1.html" target="_self"><img src="casa1.jpg" alt='Braga' title='Braga' /> </a> </li>
-			<li class='num1 img slide'>  <a href="casa8.html" target="_self"><img src="casa8.jpg" alt='Porto' title='Porto' /> </a> </li>
-			<li class='num2 img slide'>  <a href="casa10.html" target="_self"><img src="casa10.jpg" alt='Porto' title='Porto' /> </a> </li>
+			<li class='num0 img slide'>  <a href="casa.php?id=3" target="_self"><img src="casa1.jpg" alt='Braga' title='Braga' /> </a> </li>
+			<li class='num1 img slide'>  <a href="casa.php?id=8" target="_self"><img src="casa8.jpg" alt='Porto' title='Porto' /> </a> </li>
+			<li class='num2 img slide'>  <a href="casa.php?id=10" target="_self"><img src="casa10.jpg" alt='Porto' title='Porto' /> </a> </li>
 		</ul><div class="cs_engine"></div>
 		<div class='cs_description'>
 			<label class='num0'><span class="cs_title"><span class="cs_wrapper">1.700.000 &euro;</span></span></label>
@@ -87,10 +119,6 @@
 <div id="casas" style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;">
 
 <?php
-define("servername","localhost");
-define("username","root");
-define("password","");
-define("dbname","db_luxvilla");
 
 // Create connection
 
@@ -130,10 +158,19 @@ while($stmt->fetch())
 {
     echo '<div class="caixacasas">
           <div id="imagem" style="display:inline-block;"><a href="casa.php?id='. $id.'">
-          <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixas"></a>
+          <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixas"></a></div><br>
+		  <div style="display: inline-block;">
           <p style="margin-top: 10px !important;">'. $local.'</p>'.
           '<p style="margin-top: 10px !important;">'. $preco.'</p>
-          </div></div>';
+		  </div>';
+		  if(empty($_COOKIE["heart".$id])||$_COOKIE["heart".$id]==0){
+          echo '<div style="float:right;" id="heart'.$id.'" class="heart">
+		  </div>';
+		  }else{
+			  echo '<div style="float:right;" id="heart'.$id.'" class="heart liked">
+		  </div>';
+		  }
+		  echo '</div>';
 }
 echo '</div>';
 if($paginas>=1){

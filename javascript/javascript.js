@@ -21,7 +21,58 @@ $(document).ready(function(){
 				document.getElementById("menusitesobrenos").style.boxShadow = "0px 0px 0px grey";
 			}
 		});
+		
 	});
+
+$(".heart").on('click touchstart', function(){
+	var id=$(this).attr('id');
+	var state=getCookie(id);
+	if($(this).hasClass('liked')){
+		setCookie(id,0,30);
+		$(this).removeClass('liked');
+	}else{
+		$(this).toggleClass('is_animating');
+		setCookie(id,1,30);
+		$(this).addClass('liked');
+	}
+});
+
+/*when the animation is over, remove the class*/
+$(".heart").on('animationend', function(){
+  $(this).toggleClass('is_animating');
+});
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie(name) {
+    var state=getCookie(name);
+    if (user == 1) {
+        alert("Welcome again " + user);
+    } else {
+       
+    }
+}
 
 });
 
@@ -68,7 +119,7 @@ $(document).ready(function () {
 var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
-var navbarHeight = $('#menusite').outerHeight();
+var navbarHeight = $('header').outerHeight();
 
 $(window).scroll(function(event){
     didScroll = true;
@@ -92,11 +143,11 @@ function hasScrolled() {
     // This is necessary so you never see what is "behind" the navbar.
     if (st > lastScrollTop && st > navbarHeight){
         // Scroll Down
-        $('#menusite').fadeOut();
+        $('header').removeClass('nav-down').addClass('nav-up');
     } else {
         // Scroll Up
         if(st + $(window).height() < $(document).height()) {
-            $('#menusite').fadeIn();
+             $('header').removeClass('nav-up').addClass('nav-down');
         }
     }
     

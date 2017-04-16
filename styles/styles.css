@@ -112,13 +112,14 @@ p{
 	text-align:center;
 	max-width:21cm;
 	width: auto;
+	float:left;
 }
 
 .caixacasas{
 	 -webkit-box-shadow: 3px 3px 6px rgba(50,50,50,0.28);
 	 margin-top:20px; 
 	 margin-left:20px; 
-	 float:left;
+	 display: inline-block;
 	 border-radius: 5px;
 	 background:#FFF;
 	 box-shadow:3px 3px 6px rgba(50,50,50,0.28);
@@ -138,12 +139,11 @@ p{
 .caixaconteudo{
 	 -webkit-box-shadow: 3px 3px 6px rgba(50,50,50,0.28);
 	 margin-top:20px; 
-	 margin-left:20%;
-	 float:left;
+	 margin-left:17%;
+	 display:inline-block;
 	 border-radius: 5px;
 	 background:#FFF;
 	 box-shadow:3px 3px 6px rgba(50,50,50,0.28);
-	 overflow:hidden;
 	
 }
 @media screen and (max-width:680px){
@@ -381,4 +381,30 @@ header {
 	z-index:3;
 	text-align:center;
 	color:#FFF; 
+}
+/*Like button*/
+.heart {
+  height: 60px;
+  width: 60px;
+  background-image:url( 'https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png');
+  background-position: left;
+  background-repeat:no-repeat;
+  background-size:2900%;
+}
+
+.heart:hover {
+  background-position:right;
+}
+
+.heart.liked {
+  background-position:right;
+}
+
+.is_animating {
+  animation: heart-burst .8s steps(28) 1;
+}
+
+@keyframes heart-burst {
+  from {background-position:left;}
+  to { background-position:right;}
 }

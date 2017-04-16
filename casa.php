@@ -50,7 +50,7 @@ echo $local." - ".$preco;
 <ul class="menu" id="menusite">
   <li ><a href="http://localhost/luxvilla-web"><img src="favicon.ico"></a></li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
-  <li><a href="#casas">Casas</a></li>
+  <li><a href="http://localhost/luxvilla-web#casas">Casas</a></li>
   
   <li><a href="http://localhost/luxvilla-web">In&iacute;cio</a></li>
   <li class="icon">
@@ -185,11 +185,18 @@ echo "<br><br>";
 echo "Preço: ".$preco;
 echo "<br><br>";
 echo $info;
-
+echo '</p>';
+		  if(isset($_COOKIE["heart".$id]) && $_COOKIE["heart".$id]==0){
+          echo '<div style="float:right;" id="heart'.$id.'" class="heart">
+		  </div>';
+		  }else{
+			  echo '<div style="float:right;" id="heart'.$id.'" class="heart liked">
+		  </div>';
+		  }
 //echo $local."<br><br>".$preco."<br><br>".$info;
 
 ?>
-</p>
+
 </div>
 </div>
 <footer id="contactos">
