@@ -3,26 +3,7 @@
 $(document).ready(function(){
 
 	// hide #back-top first
-	$("#back-top").hide();
 	
-	// fade in #back-top
-	$(function () {
-		$(window).scroll(function () {
-			if ($(this).scrollTop() > 500) {
-				$('#back-top').fadeIn();
-			} else {
-				$('#back-top').fadeOut();
-			}
-			if ($(this).scrollTop() > 0) {
-		document.getElementById("menusite").style.boxShadow = "0px 3px 6px rgba(50,50,50,0.28)";
-		document.getElementById("menusitesobrenos").style.boxShadow = "0px 3px 6px rgba(50,50,50,0.28)";
-			} else {
-				document.getElementById("menusite").style.boxShadow = "0px 0px 0px grey";
-				document.getElementById("menusitesobrenos").style.boxShadow = "0px 0px 0px grey";
-			}
-		});
-		
-	});
 
 $(".heart").on('click touchstart', function(){
 	var id=$(this).attr('id');
@@ -73,7 +54,51 @@ function checkCookie(name) {
        
     }
 }
+});
 
+$(document).ready(function(){
+	var menusite=document.getElementById("menusite");
+	var menusobrenos=document.getElementById("menusitesobrenos");
+	
+	$("#back-top").hide();
+	
+	// fade in #back-top
+	$(function () {
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 500) {
+				$('#back-top').fadeIn();
+			} else {
+				$('#back-top').fadeOut();
+			}
+			if ($(this).scrollTop() > 0) {
+				if(menusite!=null){
+					menusite.style.boxShadow = "0px 3px 6px rgba(50,50,50,0.28)";
+				}else{
+					menusobrenos.style.boxShadow = "0px 3px 6px rgba(50,50,50,0.28)";
+				}
+			} else {
+				if(menusite!=null){
+					menusite.style.boxShadow = "0px 0px 0px grey";
+				}else{
+					menusobrenos.style.boxShadow = "0px 0px 0px grey";
+				}
+			}
+		});
+		
+	});
+	
+	$("#arrowleft").hover(function(){
+        $("#ileft").addClass("hover");
+        }, function(){
+        $("#ileft").removeClass("hover");
+    });
+
+$("#arrowright").hover(function(){
+        $("#iright").addClass("hover");
+        }, function(){
+        $("#iright").removeClass("hover");
+		});
+	
 });
 
 $(document).ready(function () {

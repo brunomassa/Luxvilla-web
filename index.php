@@ -85,7 +85,8 @@ if(isset($_COOKIE["heart".$id])) {
 <div id="inicio">
 <link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
 
-<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class='csslider1 autoplay '>
+<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> 
+<div class='csslider1 autoplay'>
 		<input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide' >
 		<input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
 		<input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' >
@@ -116,7 +117,7 @@ if(isset($_COOKIE["heart".$id])) {
 		</div>
 		</div>
         </div>
-<div id="casas" style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;">
+<div id="casas" style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;>
 
 <?php
 
@@ -177,9 +178,9 @@ if($paginas>=1){
 	echo '<div class="center" style="width:100%;">';
 	echo '<div class="pagination">';
 	if($page==1){
-		echo '<a href="#">&laquo;</a>';
+		echo '<a id="arrowleft" href="#"><i id="ileft" class="arrowleft"></i></a>';
 	}else{
-		echo '<a href="?page='.($page-1).'">&laquo;</a>';
+		echo '<a id="arrowleft" href="?page='.($page-1).'"><i id="ileft" class="arrowleft"></i></a>';
 	}
 	for($i=1;$i<=$paginas;$i++){
 		if($i==$page){
@@ -189,9 +190,9 @@ if($paginas>=1){
 		}
 	}
 	if($page==$paginas){
-		echo '<a href="#">&raquo;</a>';
+		echo '<a id="arrowright" href="#"><i id="iright"  class="arrowright"></i></a>';
 	}else{
-		echo '<a href="?page='.($page+1).'">&raquo;</a>';
+		echo '<a id="arrowright" href="?page='.($page+1).'"><i  id="iright" class="arrowright"></i></a>';
 	}
 	echo '</div>';
 	echo '</div>';

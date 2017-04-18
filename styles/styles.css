@@ -126,6 +126,12 @@ p{
 	
 }
 
+.caixacasas:hover{
+	 -webkit-box-shadow: 5px 5px 8px rgba(50,50,50,0.28);
+	 box-shadow:5px 5px 8px rgba(50,50,50,0.28);
+	
+}
+
 .caixacasas a:hover{
 	opacity:0.8;
 }
@@ -136,10 +142,20 @@ p{
 	
 }
 
+.conteudo {
+    margin: auto;
+    background:#CCC;
+	min-height:100px;
+	overflow: hidden;
+	padding-bottom:10px;
+	padding-top:20px;
+	width:100%;
+	text-align:center;
+	
+}
+
 .caixaconteudo{
 	 -webkit-box-shadow: 3px 3px 6px rgba(50,50,50,0.28);
-	 margin-top:20px; 
-	 margin-left:17%;
 	 display:inline-block;
 	 border-radius: 5px;
 	 background:#FFF;
@@ -354,6 +370,42 @@ input::-webkit-input-placeholder {
     border-bottom-right-radius: 5px;
 }
 
+#iright {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+}
+#iright.hover {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+}
+
+#ileft {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+}
+#ileft.hover {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+}
+
+.arrowright {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.arrowleft {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
 .center {
     text-align: center;
 }
@@ -407,4 +459,26 @@ header {
 @keyframes heart-burst {
   from {background-position:left;}
   to { background-position:right;}
+}
+
+.parallax {
+    /* The image used */
+    background-image: url(../logo.jpg);
+
+    /* Set a specific height */
+    height: 500px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-size:auto;
+	
+	width: 100%;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .parallax {
+        background-attachment: scroll;
+    }
 }

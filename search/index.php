@@ -116,9 +116,9 @@ if($paginas>=1){
 	echo '<div class="center" style="width:100%;">';
 	echo '<div class="pagination">';
 	if($page==1){
-		echo '<a href="#">&laquo;</a>';
+		echo '<a id="arrowleft" href="#"><i id="ileft" class="arrowleft"></i></a>';
 	}else{
-		echo '<a href="?page='.($page-1).'">&laquo;</a>';
+		echo '<a id="arrowleft" href="?page='.($page-1).'"><i id="ileft" class="arrowleft"></i></a>';
 	}
 	for($i=1;$i<=$paginas;$i++){
 		if($i==$page){
@@ -128,9 +128,9 @@ if($paginas>=1){
 		}
 	}
 	if($page==$paginas){
-		echo '<a href="#">&raquo;</a>';
+		echo '<a id="arrowright" href="#"><i id="iright"  class="arrowright"></i></a>';
 	}else{
-		echo '<a href="?page='.($page+1).'">&raquo;</a>';
+		echo '<a id="arrowright" href="?page='.($page+1).'"><i id="iright"  class="arrowright"></i></a>';
 	}
 	echo '</div>';
 	echo '</div>';

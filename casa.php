@@ -153,7 +153,7 @@ if(!empty($imgslider4)){
 }
 ?>
 </div>
- <div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="conteudo">
+ <div class="conteudo" id="conteudo">
 <div class="caixaconteudo">
 <p class="pcaixa">
 <?php
