@@ -60,15 +60,15 @@ $(document).ready(function(){
 	var menusite=document.getElementById("menusite");
 	var menusobrenos=document.getElementById("menusitesobrenos");
 	
-	$("#back-top").hide();
+	$("#back-top").addClass("backtop-hidden");
 	
 	// fade in #back-top
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 500) {
-				$('#back-top').fadeIn();
+				$('#back-top').removeClass("backtop-hidden").addClass("shown");
 			} else {
-				$('#back-top').fadeOut();
+				$('#back-top').removeClass("shown").addClass("backtop-hidden");
 			}
 			if ($(this).scrollTop() > 0) {
 				if(menusite!=null){

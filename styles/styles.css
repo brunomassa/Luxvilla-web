@@ -121,6 +121,7 @@ p{
 	 margin-left:20px; 
 	 display: inline-block;
 	 border-radius: 5px;
+	 text-align: left;
 	 background:#FFF;
 	 box-shadow:3px 3px 6px rgba(50,50,50,0.28);
 	
@@ -299,17 +300,17 @@ input::-webkit-input-placeholder {
 
 #back-top {
 	position: fixed;
-	bottom: 0px;
+	bottom: 0;
 	right: 20px;
+	-webkit-transition-property: margin-bottom; /* Safari */
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-property: margin-bottom;
+    transition-duration: 0.4s;
 }
 #back-top a {
 	width: 40px;
 	display: block;
 	color: #bbb;
-	/* background color transition */
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
 }
 #back-top a:hover {
 	color: #000;
@@ -324,14 +325,15 @@ input::-webkit-input-placeholder {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	transition: 1s;
 }
 #back-top a:hover span {
 	background-color: #3d121c; 
 	opacity:0.8;
 	border-color:#fff;
+}
+
+.backtop-hidden{
+	margin-bottom: -60px;
 }
 
 .pagination {
