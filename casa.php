@@ -213,7 +213,7 @@ echo '</p>';
 </div>
         </div>
 </footer>
-<p id="back-top">
+<p class="backtop-hidden" id="back-top">
 		<a href="#inicio"><span></span></a>
 	</p>
 </body>

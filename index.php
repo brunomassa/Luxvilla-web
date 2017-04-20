@@ -117,7 +117,7 @@ if(isset($_COOKIE["heart".$id])) {
 		</div>
 		</div>
         </div>
-<div id="casas" style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;>
+<div id="casas" style="background:#CCC; max-width:100%; min-height:100px; padding-top:10px; padding-bottom:10px; overflow: hidden; text-align: center;">
 
 <?php
 
@@ -204,7 +204,7 @@ if($paginas>=1){
 $stmt->close();
 mysqli_close($conn);
 ?>
-</div>   
+</div>  
         <footer id="contactos">
         <div class="center" style="padding-top:40px;">
         <div>
@@ -221,7 +221,7 @@ mysqli_close($conn);
         </div>
 </footer>
 <!-- <div class="subfooter"><div style="position: relative;top: 50%;transform: translateY(-50%);">IF YOU WANT</div></div> -->
-<p id="back-top">
+<p class="backtop-hidden" id="back-top">
 		<a href="#inicio"><span></span></a>
 	</p></body>
 </html>

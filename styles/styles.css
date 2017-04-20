@@ -300,12 +300,12 @@ input::-webkit-input-placeholder {
 
 #back-top {
 	position: fixed;
-	bottom: 0;
+	bottom: -10px;
 	right: 20px;
 	-webkit-transition-property: margin-bottom; /* Safari */
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.3s; /* Safari */
     transition-property: margin-bottom;
-    transition-duration: 0.4s;
+    transition-duration: 0.3s;
 }
 #back-top a {
 	width: 40px;

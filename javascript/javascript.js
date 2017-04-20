@@ -60,9 +60,7 @@ $(document).ready(function(){
 	var menusite=document.getElementById("menusite");
 	var menusobrenos=document.getElementById("menusitesobrenos");
 	
-	$("#back-top").addClass("backtop-hidden");
-	
-	// fade in #back-top
+	// #back-top
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 500) {

@@ -34,15 +34,15 @@
 $(document).ready(function(){
 
 	// hide #back-top first
-	$("#back-top").hide();
+	$("#back-top").addClass("backtop-hidden");
 	
 	// fade in #back-top
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 400) {
-				$('#back-top').fadeIn();
+				$('#back-top').removeClass("backtop-hidden").addClass("shown");
 			} else {
-				$('#back-top').fadeOut();
+				$('#back-top').removeClass("shown").addClass("backtop-hidden");
 			}
 			if ($(this).scrollTop() > 0) {
 		document.getElementById("menusite").style.boxShadow = "0px 3px 6px rgba(50,50,50,0.28)";
@@ -114,7 +114,7 @@ function myFunction() {
 </svg><font size="5" color="#FFFFFF"> github (Android)</font></span></button></a></div>
    </div>      
 </footer>
-<p id="back-top">
+<p class="backtop-hidden" id="back-top">
 		<a href="#top"><span></span></a>
 	</p>
 </body>

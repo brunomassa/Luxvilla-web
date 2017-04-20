@@ -109,7 +109,15 @@ while($stmt->fetch())
           <div id="imagem" style="display:inline-block;"><a href="casa.php?id='. $id.'">
           <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixassearchresult"></a>
           <p style="margin-top: 10px !important; float:right;">'. $local.'<br><br>'.$preco.'</p>'.
-          '</div></div>';
+          '</div>';
+		  if(empty($_COOKIE["heart".$id])||$_COOKIE["heart".$id]==0){
+          echo '<div style="float:right;" id="heart'.$id.'" class="heart">
+		  </div>';
+		  }else{
+			  echo '<div style="float:right;" id="heart'.$id.'" class="heart liked">
+		  </div>';
+		  }
+		  echo '</div>';
 	 }
 }
 if($paginas>=1){
@@ -157,7 +165,7 @@ mysqli_close($conn);
 </div>
         </div>
 </footer>
-<p id="back-top">
+<p class="backtop-hidden" id="back-top">
 		<a href="#top"><span></span></a>
 	</p>
 </body>
