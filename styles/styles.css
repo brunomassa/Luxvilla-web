@@ -133,6 +133,12 @@ p{
 	
 }
 
+.caixacasas a{
+	opacity:1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
 .caixacasas a:hover{
 	opacity:0.8;
 }
@@ -468,7 +474,7 @@ header {
     background-image: url(../logo.jpg);
 
     /* Set a specific height */
-    height: 500px; 
+    height: 550px; 
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;

@@ -63,6 +63,30 @@ if(isset($_COOKIE["heart".$id])) {
 <link href="styles/styles.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="javascript/javascript.js"></script>
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#ffffff",
+      "text": "#651d31"
+    },
+    "button": {
+      "background": "transparent",
+      "border": "#651d31",
+      "text": "#651d31"
+    }
+  },
+  "content": {
+    "message": "Este website usa cookies para melhorar a experiencia",
+    "dismiss": "Compreendi",
+    "link": "ler mais"
+  }
+})});
+</script>
 </head>
 
 <body bgcolor="#CCC">
