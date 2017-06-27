@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Luxvilla - Edit profile</title>
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link href="../styles/styles.min.css" rel="stylesheet">
+      <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+      
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      
+      <script type="text/javascript" src="../javascript/javascript.js"></script>
+      <script type="text/javascript" src="../javascript/epggea.js"></script>
+      
+      <style>
+	  
+	  .centered {
+  position: absolute;
+  text-align:left;
+  padding-left:30%;
+  padding-right:30%;
+  padding-top:1%;
+  width:100%;
+  height:100%;
+}
+@media screen and (max-width:680px){
+	.centered {
+  position: absolute;
+  text-align:left;
+  padding-left:0;
+  padding-right:0;
+  padding-top:1%;
+  width:100%;
+  height:100%;
+}
+}
+
+   .input-field textarea[class=materialize-textarea]:focus + label {
+color: #651D31;
+}
+   .input-field textarea[class=materialize-textarea]:focus {
+border-bottom: 1px solid #651D31;
+box-shadow: 0 1px 0 0 #651D31;
+}
+   
+   
+   .input-field input[type=text]:focus + label {
+     color: #651D31;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #651D31;
+     box-shadow: 0 1px 0 0 #651D31;
+   }
+        
+	  </style>
+      <script>
+	  function enterpress(e){
+		  if (e.keyCode == 13) {
+			  editprofile();
+        	  return false;
+    	}
+	  }
+	  </script>
+</head>
+
+<body bgcolor="#FFF">
+      <div class="centered">
+      <div style="text-align:center;">
+      <img src="../logo.jpg" alt="Avatar" width="300px" height="300px">
+      </div>
+      <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username" type="text" name="username" class="validate" onBlur="checkusername()" onKeyPress="return enterpress(event)" value="">
+          <label for="username" data-success="">User name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+        <textarea id="nbio" name="nbio" class="materialize-textarea" onKeyPress="return enterpress(event)"></textarea>
+          <label for="nbio">User bio</label>
+        </div>
+      </div>
+      <button type="button" style="display:block; margin:auto; background-color:#651D31" class="btn waves-effect waves-light" name="edit" id="edit">Edit
+  </button>
+        
+    </form>
+  </div>
+  <div style="width:100%; height:5px;"></div>
+   </div>
+   <div id="snackbar"></div>  
+</body>
+</html>

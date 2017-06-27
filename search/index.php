@@ -29,15 +29,29 @@
 <meta name="theme-color" content="#ffffff">
 <title>Resultados de <?php $title=$_POST["q"]; echo $title;?></title>
 <link href="../styles/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="../javascript/javascript.js"></script>
+<script type="text/javascript" src="../javascript/epggea.js"></script>
 </head>
 
-<body bgcolor="#CCC">
-<div style="min-height:100px;">
+<body bgcolor="#f2f4f5">
+<div style="min-height:10px;" id="top">
 <header class="nav-down">
 <ul class="menu" id="menusite">
   <li ><a href="http://localhost/luxvilla-web/"><img src="../favicon.ico"></a></li>
+   <li id="usersignin" class="dropdown"><a href="javascript:void(0)"><i class="material-icons">person</i><i class="material-icons">arrow_drop_down</i></a>
+<div id="myDropdown" class="dropdown-content">
+<a id="signinlink" href="http://localhost/luxvilla-web/signin/"><i class="material-icons">account_circle</i><br><font>Log in</font></a>
+<a id="signuplink" href="http://localhost/luxvilla-web/signup/"><i class="material-icons">person_add</i>
+<br><font>Sign up</font></a>
+<a id="profilelink" href="http://localhost/luxvilla-web/profile/"><i class="material-icons">account_circle</i><br><font>Perfil</font></a>
+<a id="signoutlink" href="javascript:void(0)" onClick="signout()"><i class="material-icons">clear</i>
+<br><font>Log out</font></a>
+</div>
+</li>
   <li><a href="http://localhost/luxvilla-web/sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="http://localhost/luxvilla-web/#casas">Casas</a></li>
   
@@ -52,8 +66,10 @@
 </ul>
 </header>
 </div>
-<div style="background:#CCC; width:100%; min-height:100px; margin-top:10px; padding-bottom:10px; overflow: hidden;" id="casas">
+<div style="background:#f2f4f5; width:100%; min-height:75vh; margin-top:10px; padding-bottom:10px; overflow: hidden; padding-top:90px;">
+
 <?php
+
 define("servername","localhost");
 define("username","root");
 define("password","");
@@ -95,7 +111,7 @@ $stmt->execute();
 $stmt->store_result();
 $stmt->bind_result($id, $imgurl, $local, $preco, $infocasa, $linkcasa);
 
-echo '<p style="margin-left:5%;"><b>Resultados da pesquisa de: '.$query.'</b></p>';
+echo '<p style="margin-left:5%;" align="center"><b>Resultados da pesquisa de: '.$query.'</b></p>';
     
 while($stmt->fetch()) 
 {
@@ -105,19 +121,39 @@ while($stmt->fetch())
 	$querylower=strtolower($query);
 	
 	 if(strpos($locallower,$querylower)!==false || strpos($precolower,$querylower)!==false || strpos($infocasalower,$querylower) !==false){
-		 echo '<div class="caixacasassearchresults">
-          <div id="imagem" style="display:inline-block;"><a href="casa.php?id='. $id.'">
-          <img width="250px" height="200px" src="'.$imgurl.'" class="imagenscaixassearchresult"></a>
-          <p style="margin-top: 10px !important; float:right;">'. $local.'<br><br>'.$preco.'</p>'.
-          '</div>';
-		  if(empty($_COOKIE["heart".$id])||$_COOKIE["heart".$id]==0){
+		 /* Fazer like button*/
+		 echo '<div style="margin-top:10px;">
+<div class="container">
+  <div class="uva-card uva-card--horizontal">
+    <div class="uva-card__media">
+    <a href="http://localhost/luxvilla-web/casa.php?id='. $id.'">
+      <img src="'.$imgurl.'">
+      </a>
+    </div>
+	<div class="uva-primarydiv">
+    <div class="uva-card__content" style="flex: 5 0 0;">
+      <div class="uva-card__body">
+      <p>
+      <strong>'.$local.'</strong>
+      </p>
+      <p>'.$preco.'</p>
+      </div>
+    </div>
+	<div class="uva-card__content">
+      <div class="uva-card__body">';
+      if(empty($_COOKIE["heart".$id])||$_COOKIE["heart".$id]==0){
           echo '<div style="float:right;" id="heart'.$id.'" class="heart">
-		  </div>';
+		  </div></div>';
 		  }else{
 			  echo '<div style="float:right;" id="heart'.$id.'" class="heart liked">
 		  </div>';
 		  }
-		  echo '</div>';
+      echo '</div>
+    </div>
+  </div>
+  </div>
+  
+</div>';
 	 }
 }
 if($paginas>=1){
@@ -128,7 +164,7 @@ if($paginas>=1){
 	}else{
 		echo '<a id="arrowleft" href="?page='.($page-1).'"><i id="ileft" class="arrowleft"></i></a>';
 	}
-	for($i=1;$i<=$paginas;$i++){
+	for($i=max(1, $page - 5);$i<=min($page + 5, $paginas);$i++){
 		if($i==$page){
 			echo '<a href="#" class="active">'.$i.'</a>';
 		}else{
@@ -151,22 +187,30 @@ $stmt->close();
 mysqli_close($conn);
 ?>
 </div>
-<footer id="contactos">
+<div class="footer" id="contactos">
         <div class="center" style="padding-top:40px;">
         <div>
-          <a target="new" href="https://github.com/brunomassa/Luxvilla-web"><button class="btn"><span><svg style="width:39px;height:39px;" viewBox="-3 -14 35 35">
-    <path fill="#ffffff" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-</svg><font size="5" color="#FFFFFF"> github (Code)</font></span></button></a></div>
+          <a target="new" href="https://github.com/brunomassa/Luxvilla-web" style="text-decoration:none;">
+   <div class=" btnfooter wave light">
+          <i class="material-icons">code</i>
+          <font>
+          WEB CODE 
+          </font>
+          </div>
+   </a></div>
 &nbsp;
 <div>
-       <a target="new" href="https://github.com/brunomassa/LuxVilla"><button class="btn"><span><svg style="width:39px;height:39px;" viewBox="-3 -14 35 35">
-    <path fill="#ffffff" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-</svg><font size="5" color="#FFFFFF"> github (Android)</font></span></button></a>
+       <a target="new" href="https://github.com/brunomassa/LuxVilla" style="text-decoration:none;">
+       <div class="btnfooter wave light">
+          &nbsp;<i class="material-icons">android</i> <font>ANDROID</font>
+       </div>
+       </a>
 </div>
         </div>
-</footer>
+</div>
 <p class="backtop-hidden" id="back-top">
 		<a href="#top"><span></span></a>
 	</p>
+    <div id="snackbar"></div>
 </body>
 </html>

@@ -1,4 +1,4 @@
- # Luxvilla-web
+# Luxvilla-web
 website of luxvilla ( educational only )
 <p align="center">
   <img src="http://brunoferreira.esy.es/logo.jpg"/>
@@ -7,14 +7,12 @@ website of luxvilla ( educational only )
 <a href="http://brunoferreira.esy.es/">Demo</a>
 <br><br><br>
 <p align="center">
-  <img src="http://brunoferreira.esy.es/mainpage.png" width="720"/>
+  <img src="http://brunoferreira.esy.es/paginainicial.jpeg" width="720"/>
 </p>
 <p align="center">
-<img src="http://brunoferreira.esy.es/hauseinfopage.jpg" width="720"/>
+<img src="http://brunoferreira.esy.es/paginacasa.jpeg" width="720"/>
 </p>
-
-
-# License
+#License
 
     @Copyright 2016 Bruno Massa
     
