@@ -1,4 +1,5 @@
-﻿<!--  Copyright 2016 Bruno Massa  -->
+﻿<!doctype html>
+<!--  Copyright 2016 Bruno Massa  -->
 <!-- This file is part of LuxVilla.
 
     LuxVilla is free software: you can redistribute it and/or modify
@@ -16,7 +17,6 @@
 
  -->
 
-<!doctype html>
 <html>
 <head>
 <meta name="theme-color" content="#651d31" />
@@ -33,40 +33,9 @@
 
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="javascript/javascript.js"></script>
+<script type="text/javascript" src="javascript/javascript.min.js"></script>
 <script type="text/javascript" src="javascript/epggea.js"></script>
-<script>
-$(document).ready(function(){
 
-	// hide #back-top first
-	$("#back-top").addClass("backtop-hidden");
-	
-	// fade in #back-top
-	$(function () {
-		$(window).scroll(function () {
-			if ($(this).scrollTop() > 400) {
-				$('#back-top').removeClass("backtop-hidden").addClass("shown");
-			} else {
-				$('#back-top').removeClass("shown").addClass("backtop-hidden");
-			}
-			if ($(this).scrollTop() > 0) {
-		document.getElementById("menusite").style.boxShadow = "0px 3px 6px rgba(50,50,50,0.28)";
-			} else {
-				document.getElementById("menusite").style.boxShadow = "0px 0px 0px grey";
-			}
-		});
-
-		// scroll body to 0px on click
-		$('#back-top a').click(function () {
-			$('body,html').animate({
-				scrollTop: 0
-			}, 800);
-			return false;
-		});
-	});
-
-});
-</script>
 <script>
 function myFunction() {
     var x = document.getElementById("menusite");
@@ -105,18 +74,20 @@ function myFunction() {
 </form>
 </ul>
 <div style="background:#FFF">
-<div class="parallax" id="top"></div>
+<div class="parallax" id="inicio"></div>
 </div>
 <div class="conteudo" id="conteudo">
 <div class="caixaconteudo">
 <p class="pcaixa">A imobiliária LuxVilla especializou-se na venda de imóveis de luxo em terras portuguesas. Começou a sua caminhada em 2003 na cidade do Porto, oferecendo aos seus compradores varias tipologias com vistas alternativas sobre aquela que é apelidada de cidade invicta. Em 2008, ano em que abrangemos a cidade de Braga, também conhecida por Bracara Augusta sempre seguindo ideais de qualidade e de excelência. Querendo cada vez mais, levar o seu nome a outros níveis 7 anos mais tarde , depois de Braga, chegamos à denominada “ Veneza portuguesa”, Aveiro, a cidade dos ovos moles, onde nos encontramos ainda em fase de expansão mas sempre com o objetivo de oferecer o melhor.</p>
 </div>
-<div class="caixaconteudo" style="margin-top:10px;">
+</div>
+<div class="conteudo" id="conteudo2" style="margin-top: -15px">
+<div class="caixaconteudo">
 <h2 style="text-align:center">Parceria douro azul</h2>
 <p class="pcaixa">Ás primeiras semanas do decorrer de 2015 e de mãos dadas com a “Douro Azul”, iniciamos uma parceria. Em que, alternadamente, a equipa de vendas visita semanalmente os cruzeiros da mesma, onde apresenta os imoveis que temos à disposição daqueles que queiram usufruir do solo português.</p>
 </div>
 </div>
-<footer id="contactos">
+<footer id="contactos" class="footer">
         <div class="center" style="padding-top:40px;">
         <div>
    <a target="new" href="https://github.com/brunomassa/Luxvilla-web" style="text-decoration:none;">
@@ -135,9 +106,11 @@ function myFunction() {
        </a></div>
    </div>      
 </footer>
-<p class="backtop-hidden" id="back-top">
-		<a href="#top"><span></span></a>
-	</p>
+<div class="subfooter" style="background-color:#3D121C"><div style="position: relative;top: 50%;transform: translateY(-50%);">Luxvilla &copy; 2017</div></div>
+<a href="#inicio" id="float">
+  <br>
+<i class="material-icons">keyboard_arrow_up</i>
+</a>
     <div id="snackbar"></div>
 </body>
 </html>

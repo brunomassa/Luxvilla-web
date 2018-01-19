@@ -10,8 +10,8 @@
 
 <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="../javascript/javascript.js"></script>
-<script src='js/epggea.js'></script>
+<script type="text/javascript" src="../javascript/javascript.min.js"></script>
+<script src='js/epggea.min.js'></script>
 
 <script>
 $(document).ready(function(){
@@ -19,15 +19,15 @@ $(document).ready(function(){
 	userprofile();
 
 	// hide #back-top first
-	$("#back-top").addClass("backtop-hidden");
+	$("#float").addClass("float-hidden");
 	
 	// fade in #back-top
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 400) {
-				$('#back-top').removeClass("backtop-hidden").addClass("shown");
+				$('#float').removeClass("float-hidden").addClass("shown");
 			} else {
-				$('#back-top').removeClass("shown").addClass("backtop-hidden");
+				$('#float').removeClass("shown").addClass("float-hidden");
 			}
 			if ($(this).scrollTop() > 0) {
 		document.getElementById("menusite").style.boxShadow = "0px 3px 6px rgba(50,50,50,0.28)";
@@ -72,7 +72,7 @@ function myFunction() {
 <br><font>Log out</font></a>
 </div>
 </li>
-  <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
+  <li><a href="http://localhost/luxvilla-web/sobre nos.html">Sobre n&oacute;s</a></li>
   <li><a href="http://brunoferreira.esy.es/#casas">Casas</a></li>
   
   <li><a href="http://brunoferreira.esy.es">In&iacute;cio</a></li>
@@ -84,7 +84,7 @@ function myFunction() {
 	<input type="search" placeholder="Pesquisar casas..." name="q">
 </form>
 </ul>
-<div style="background:#FFF" id="top">
+<div style="background:#FFF" id="inicio">
 <div class="profileparallax" style="display: flex;">
 <div id="preloader" class="center" style="margin:auto;">
 
@@ -101,7 +101,7 @@ function myFunction() {
 </div>
 
 </div>
-<div id="profilename" style="margin:auto; display:none;"><img src="../logo.jpg" class="circular_image"><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div id="profilename" style="margin:auto; display:none;"><img id="profileimage" src="../logo.jpg" class="circular_image"><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <font color="#FFFFFF" id="username">@Username</font>
 <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="http://localhost/luxvilla-web/editprofile/" class="profileeditlink"><i class="material-icons">create</i>&nbsp;Editar perfil</a>
@@ -134,8 +134,8 @@ function myFunction() {
     
     <div class="conteudo" id="conteudo" style="display:none;">
 <div class="caixaconteudo" style="margin-top:10px;">
-<h2 style="text-align:center">Sobre o usuario</h2>
-<p class="pcaixa" id="userbio">Para ver as informações de usuario precisa de fazer login.&nbsp;</p>
+<h2 style="text-align:center">Sobre o utilizador</h2>
+<p class="pcaixa" id="userbio">Informações de utilizador.&nbsp;</p>
 </div>
 </div>
     
@@ -205,7 +205,7 @@ if(!empty($likesarray)){
 	while($stmt->fetch()){
 		echo ('<div class="casacard">
        <div style="width:100%; height:60%;">
-       <a href="casa.php?id='.$id.'">
+       <a href="http://localhost/luxvilla-web/casa.php?id='.$id.'">
        <img src="'.$imgurl.'" width="100%" height="100%">
        </a>
        </div>
@@ -263,7 +263,7 @@ mysqli_close($conn);
     </div>
   </div>
 
-<footer id="contactos">
+<footer id="contactos" class="footer">
         <div class="center" style="padding-top:40px;">
         <div>
    <a target="new" href="https://github.com/brunomassa/Luxvilla-web" style="text-decoration:none;">
@@ -282,9 +282,11 @@ mysqli_close($conn);
        </a></div>
    </div>      
 </footer>
-<p class="backtop-hidden" id="back-top">
-		<a href="#top"><span></span></a>
-	</p>
+<div class="subfooter" style="background-color:#3D121C"><div style="position: relative;top: 50%;transform: translateY(-50%);">Luxvilla &copy; 2017</div></div>
+<a href="#inicio" id="float">
+  <br>
+<i class="material-icons">keyboard_arrow_up</i>
+</a>
     <div id="snackbar"></div>
 </body>
 </html>

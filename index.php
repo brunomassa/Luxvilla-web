@@ -65,9 +65,9 @@ if(isset($_COOKIE["heart".$id])) {
 
 <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="javascript/javascript.js"></script>
-<script type="text/javascript" src="javascript/epggea.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="javascript/javascript.min.js"></script>
+<script type="text/javascript" src="javascript/epggea.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
@@ -100,12 +100,12 @@ window.cookieconsent.initialise({
   <li><a href="http://localhost/luxvilla-web/"><img src="favicon.ico"></a></li>
   <li id="usersignin" class="dropdown"><a href="javascript:void(0)"><i class="material-icons">person</i><i class="material-icons">arrow_drop_down</i></a>
 <div id="myDropdown" class="dropdown-content">
-<a id="signinlink" href="http://localhost/luxvilla-web/signin/"><i class="material-icons">account_circle</i><br><font>Log in</font></a>
+<a id="signinlink" href="http://localhost/luxvilla-web/signin/"><i class="material-icons">account_circle</i><br><span>Log in</span></a>
 <a id="signuplink" href="http://localhost/luxvilla-web/signup/"><i class="material-icons">person_add</i>
-<br><font>Sign up</font></a>
-<a id="profilelink" href="http://localhost/luxvilla-web/profile/"><i class="material-icons">account_circle</i><br><font>Perfil</font></a>
+<br><span>Sign up</span></a>
+<a id="profilelink" href="http://localhost/luxvilla-web/profile/"><i class="material-icons">account_circle</i><br><span>Perfil</span></a>
 <a id="signoutlink" href="javascript:void(0)" onClick="signout()"><i class="material-icons">clear</i>
-<br><font>Log out</font></a>
+<br><span>Log out</span></a>
 </div>
 </li>
   <li><a href="sobre nos.html">Sobre n&oacute;s</a></li>
@@ -121,41 +121,68 @@ window.cookieconsent.initialise({
 </form>
 </ul>
 </header>
-<div id="inicio">
-<link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
-
-<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> 
-<div class='csslider1 autoplay'>
-		<input name="cs_anchor1" id='cs_slide1_0' type="radio" class='cs_anchor slide' >
-		<input name="cs_anchor1" id='cs_slide1_1' type="radio" class='cs_anchor slide' >
-		<input name="cs_anchor1" id='cs_slide1_2' type="radio" class='cs_anchor slide' >
-		<input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
-		<input name="cs_anchor1" id='cs_pause1_0' type="radio" class='cs_anchor pause'>
-		<input name="cs_anchor1" id='cs_pause1_1' type="radio" class='cs_anchor pause'>
-		<input name="cs_anchor1" id='cs_pause1_2' type="radio" class='cs_anchor pause'>
-		<ul>
-			<li class="cs_skeleton"><img style="width: 100%;" src="casa1.jpg"></li>
-			<li class='num0 img slide'>  <a href="casa.php?id=3" target="_self"><img src="casa1.jpg" alt='Braga' title='Braga' /> </a> </li>
-			<li class='num1 img slide'>  <a href="casa.php?id=8" target="_self"><img src="casa8.jpg" alt='Porto' title='Porto' /> </a> </li>
-			<li class='num2 img slide'>  <a href="casa.php?id=10" target="_self"><img src="casa10.jpg" alt='Porto' title='Porto' /> </a> </li>
-		</ul><div class="cs_engine"></div>
-		<div class='cs_description'>
-			<label class='num0'><span class="cs_title"><span class="cs_wrapper">1.700.000 &euro;</span></span></label>
-			<label class='num1'><span class="cs_title"><span class="cs_wrapper">3.200.000 &euro;</span></span></label>
-			<label class='num2'><span class="cs_title"><span class="cs_wrapper">1.600.000 &euro;</span></span></label>
-		</div>
-		<div class='cs_arrowprev'>
-			<label class='num0' for='cs_slide1_0'><span><i></i><b></b></span></label>
-			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
-			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
-		</div>
-		<div class='cs_arrownext'>
-			<label class='num0' for='cs_slide1_0'><span><i></i><b></b></span></label>
-			<label class='num1' for='cs_slide1_1'><span><i></i><b></b></span></label>
-			<label class='num2' for='cs_slide1_2'><span><i></i><b></b></span></label>
-		</div>
-		</div>
+<div id="inicio" style="height: 100%; overflow: hidden; font-size: 62.5%; background: #000000">
+    <script type="text/javascript" src="javascript/slider-js.min.js"></script>
+    <div class="slider-container">
+        <div class="slider-control left inactive"></div>
+        <div class="slider-control right"></div>
+        <ul class="slider-pagi"></ul>
+        <div class="slider">
+            <div class="slide slide-0 active">
+                <div class="slide__bg"></div>
+                <div class="slide__content">
+                    <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+                        <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+                    </svg>
+                    <div class="slide__text">
+                        <h2 class="slide__text-heading">Braga</h2>
+                        <p class="slide__text-desc">Soberba moradia, localizada na verdejante regi�o do Ger�s, ref�gio de beleza natural e tranquilidade. A propriedade contempla a moradia de arquitetura moderna...</p>
+                        <a class="slide__text-link" href="casa.php?id=5">ver informações</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-1 ">
+                <div class="slide__bg"></div>
+                <div class="slide__content">
+                    <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+                        <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+                    </svg>
+                    <div class="slide__text">
+                        <h2 class="slide__text-heading">Aveiro</h2>
+                        <p class="slide__text-desc">Moradia com um design moderno, onde se pode desfrutar de �reas amplas com excelente exposi��o solar, incorporados acabamentos de luxo...</p>
+                        <a class="slide__text-link" href="casa.php?id=2">ver informações</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-2">
+                <div class="slide__bg"></div>
+                <div class="slide__content">
+                    <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+                        <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+                    </svg>
+                    <div class="slide__text">
+                        <h2 class="slide__text-heading">Porto</h2>
+                        <p class="slide__text-desc">Moradia localizada numa das mais relevantes e procuradas avenidas da cidade do Porto. Com detalhes e caracter�sticas �nicas, que lhe conferem grande requinte...</p>
+                        <a class="slide__text-link" href="casa.php?id=8">ver informações</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-3">
+                <div class="slide__bg"></div>
+                <div class="slide__content">
+                    <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+                        <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+                    </svg>
+                    <div class="slide__text">
+                        <h2 class="slide__text-heading">Porto</h2>
+                        <p class="slide__text-desc">Apartamento localizado em local premium da cidade do Porto, � Avenida Marechal Gomes da Costa, onde pode viver-se com toda a calma e descontra��o...</p>
+                        <a class="slide__text-link" href="casa.php?id=10">ver informações</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
 <div id="casas">
 <div class="content">
 <?php
@@ -257,15 +284,15 @@ mysqli_close($conn);
 ?>
 </div>
 </div>  
-        <footer id="contactos">
+        <footer id="contactos" class="footer">
         <div class="center" style="padding-top:40px;">
         <div>
           <a target="new" href="https://github.com/brunomassa/Luxvilla-web" style="text-decoration:none;">
           <div class=" btnfooter wave light">
           <i class="material-icons">code</i>
-          <font>
+          <span>
           WEB CODE 
-          </font>
+          </span>
           </div>
           </a>
    
@@ -273,16 +300,17 @@ mysqli_close($conn);
 <div>
        <a target="new" href="https://github.com/brunomassa/LuxVilla" style="text-decoration:none;">
        <div class="btnfooter wave light">
-          &nbsp;<i class="material-icons">android</i> <font>ANDROID</font>
+          &nbsp;<i class="material-icons">android</i> <span>ANDROID</span>
        </div>
        </a>
 </div>
         </div>
 </footer>
-<!-- <div class="subfooter"><div style="position: relative;top: 50%;transform: translateY(-50%);">IF YOU WANT</div></div> -->
-<p class="backtop-hidden" id="back-top">
-		<a href="#inicio"><span></span></a>
-	</p>
+<div class="subfooter" style="background-color:#3D121C"><div style="position: relative;top: 50%;transform: translateY(-50%);">Luxvilla &copy; 2017</div></div>
+<a href="#inicio" id="float">
+  <br>
+<i class="material-icons">keyboard_arrow_up</i>
+</a>
      <div id="snackbar"></div>
     </body>
 </html>

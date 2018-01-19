@@ -45,7 +45,7 @@ echo $local." - ".$preco;
 
 <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="javascript/javascript.js"></script>
+<script type="text/javascript" src="javascript/javascript.min.js"></script>
 <script type="text/javascript" src="javascript/epggea.js"></script>
 </head>
 
@@ -77,7 +77,9 @@ echo $local." - ".$preco;
 </ul>
 </header>
 <!--slider-->
-<div id="inicio">
+<div id="inicio" style="height: 100%; overflow: hidden; font-size: 62.5%; background: #000000">
+    <script type="text/javascript" src="javascript/slider-js.min.js"></script>
+    <link href="styles/style-slidercasa.min.css" rel="stylesheet">
 <?php
 // Create connection
 
@@ -100,70 +102,42 @@ $stmt->bind_result($imgslider1, $imgslider2, $imgslider3, $imgslider4);
 $stmt->fetch();
 
 if(!empty($imgslider4)){
-
-	echo'<link rel="stylesheet" href="cssslidercasa1_files/csss_engine1/style.css">
-			<!--[if IE]><link rel="stylesheet" href="cssslidercasa1_files/csss_engine1/ie.css"><![endif]-->
-			<!--[if lte IE 9]><script type="text/javascript" src="cssslidercasa1_files/csss_engine1/ie.js"></script><![endif]-->
-			 <div class="csslider1 autoplay">
-			<input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide" >
-			<input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide" >
-			<input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide" >
-			<input name="cs_anchor1" id="cs_slide1_3" type="radio" class="cs_anchor slide" >
-			<input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked>
-			<input name="cs_anchor1" id="cs_pause1_0" type="radio" class="cs_anchor pause">
-			<input name="cs_anchor1" id="cs_pause1_1" type="radio" class="cs_anchor pause">
-			<input name="cs_anchor1" id="cs_pause1_2" type="radio" class="cs_anchor pause">
-			<input name="cs_anchor1" id="cs_pause1_3" type="radio" class="cs_anchor pause">
-			<ul>
-				<li class="cs_skeleton"><img src="'.$imgslider1.'" style="width: 100%;"></li>
-				<li class="num0 img slide"> <img src="'.$imgslider1.'" alt="casa1_1" title="casa1_1" /></li>
-				<li class="num1 img slide"> <img src="'.$imgslider2.'" alt="casa1_2" title="casa1_2" /></li>
-				<li class="num2 img slide"> <img src="'.$imgslider3.'" alt="casa1_3" title="casa1_3" /></li>
-				<li class="num3 img slide"> <img src="'.$imgslider4.'" alt="casa1_4" title="casa1_4" /></li>
-			</ul>
-			
-			<div class="cs_arrowprev">
-				<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
-				<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
-				<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
-				<label class="num3" for="cs_slide1_3"><span><i></i><b></b></span></label>
-			</div>
-			<div class="cs_arrownext">
-				<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
-				<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
-				<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
-				<label class="num3" for="cs_slide1_3"><span><i></i><b></b></span></label>
-			</div>
-			</div>';
+	echo'<div class="slider-container">
+  <div class="slider-control left inactive"></div>
+  <div class="slider-control right"></div>
+  <ul class="slider-pagi"></ul>
+  <div class="slider">
+    <div class="slide slide-0 active">
+      <div class="slide__bg" style="background-image: url('.$imgslider1.');"></div>
+    </div>
+    <div class="slide slide-1 ">
+      <div class="slide__bg" style="background-image: url('.$imgslider2.');"></div>
+    </div>
+    <div class="slide slide-2">
+      <div class="slide__bg" style="background-image: url('.$imgslider3.');"></div>
+    </div>
+    <div class="slide slide-3">
+      <div class="slide__bg" style="background-image: url('.$imgslider4.');"></div>
+     </div>
+  </div>
+</div>';
 }else{
-	echo '<link href="cssslider_files/csss_engine1/style.css" rel="stylesheet">
-		<!--[if IE]><link rel="stylesheet" href="cssslider_files/csss_engine1/ie.css"><![endif]-->
-		<!--[if lte IE 9]><script type="text/javascript" src="cssslider_files/csss_engine1/ie.js"></script><![endif]-->
-		<script src="cssslider_files/csss_engine1/gestures.js" type="text/javascript"></script> <div class="csslider1 autoplay ">
-		<input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide" >
-		<input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide" >
-		<input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide" >
-		<input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked>
-		<input name="cs_anchor1" id="cs_pause1_0" type="radio" class="cs_anchor pause">
-		<input name="cs_anchor1" id="cs_pause1_1" type="radio" class="cs_anchor pause">
-		<input name="cs_anchor1" id="cs_pause1_2" type="radio" class="cs_anchor pause">
-		<ul>
-			<li class="cs_skeleton"><img style="width: 100%;" src="'.$imgslider1.'"></li>
-			<li class="num0 img slide">  <a href="google.com" target="_self"><img src="'.$imgslider1.'" alt="Casa x" title="Casa x" /> </a> </li>
-			<li class="num1 img slide">  <a href="google.com" target="_self"><img src="'.$imgslider2.'" alt="Casa y" title="Casa y" /> </a> </li>
-			<li class="num2 img slide">  <a href="google.com" target="_self"><img src="'.$imgslider3.'" alt="Casa z" title="Casa z" /> </a> </li>
-		</ul><div class="cs_engine"></div>
-		<div class="cs_arrowprev">
-			<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
-			<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
-			<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
-		</div>
-		<div class="cs_arrownext">
-			<label class="num0" for="cs_slide1_0"><span><i></i><b></b></span></label>
-			<label class="num1" for="cs_slide1_1"><span><i></i><b></b></span></label>
-			<label class="num2" for="cs_slide1_2"><span><i></i><b></b></span></label>
-		</div>
-		</div>';
+	echo '<div class="slider-container">
+  <div class="slider-control left inactive"></div>
+  <div class="slider-control right"></div>
+  <ul class="slider-pagi"></ul>
+  <div class="slider">
+    <div class="slide slide-0 active">
+      <div class="slide__bg" style="background-image: url('.$imgslider1.');"></div>
+    </div>
+    <div class="slide slide-1 ">
+      <div class="slide__bg" style="background-image: url('.$imgslider2.');"></div>
+    </div>
+    <div class="slide slide-2">
+      <div class="slide__bg" style="background-image: url('.$imgslider3.');"></div>
+    </div>
+  </div>
+</div>';
 }
 ?>
 </div>
@@ -213,7 +187,7 @@ echo '</p>';
 
 </div>
 </div>
-<footer id="contactos">
+<footer id="contactos" class="footer">
         <div class="center" style="padding-top:40px;">
         <div>
           <a target="new" href="https://github.com/brunomassa/Luxvilla-web" style="text-decoration:none;">
@@ -233,9 +207,11 @@ echo '</p>';
 </div>
         </div>
 </footer>
-<p class="backtop-hidden" id="back-top">
-		<a href="#inicio"><span></span></a>
-	</p>
+<div class="subfooter" style="background-color:#3D121C"><div style="position: relative;top: 50%;transform: translateY(-50%);">Luxvilla &copy; 2017</div></div>
+<a href="#inicio" id="float">
+  <br>
+<i class="material-icons">keyboard_arrow_up</i>
+</a>
     <div id="snackbar"></div>
 </body>
 </html>

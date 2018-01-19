@@ -4,12 +4,12 @@ $(document).ready(function(){
 	
 	"use strict";
 	var config = {
-    apiKey: "<YOUR-API-KEY>",
-    authDomain: "<YOUR-AUTHDOMAIN>",
-    databaseURL: "<YOU-DATABASEURL>",
-    projectId: "<YOUR-PROJECTID>",
-    storageBucket: "<YOUR-STORAGEBUCKET>",
-    messagingSenderId: "<YOUR-MESSAGINGSENDERID>"
+    apiKey: "API_KEY",
+    authDomain: "AUTH_DPMAIN",
+    databaseURL: "DATABASE_URL",
+    projectId: "PROJECT_ID",
+    storageBucket: "STORAGE_BUCKET",
+    messagingSenderId: "MESSAGING_SENDER_ID"
   };
 
   firebase.initializeApp(config);
@@ -114,13 +114,15 @@ $(document).ready(function(){
 	var menusite=document.getElementById("menusite");
 	var menusobrenos=document.getElementById("menusitesobrenos");
 	
+	$("#float").addClass("float-hidden");
+	
 	// #back-top
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 500) {
-				$('#back-top').removeClass("backtop-hidden").addClass("shown");
+				$('#float').removeClass("float-hidden").addClass("shown");
 			} else {
-				$('#back-top').removeClass("shown").addClass("backtop-hidden");
+				$('#float').removeClass("shown").addClass("float-hidden");
 			}
 			if ($(this).scrollTop() > 0) {
 				if(menusite!==null){
@@ -241,6 +243,16 @@ function myFunction() {
     } else {
         x.className = "menu";
     }
+}
+
+function GoogleSignIn(){
+	"use strict"
+	if(firebase.auth().currentUser){
+		firebase.auth().signOut();
+	}else{
+	  var provider = new firebase.auth.GoogleAuthProvider();
+	  firebase.auth().signInWithRedirect(provider);
+	}
 }
 
 function toggleSignIn() {
@@ -376,71 +388,40 @@ function toggleSignIn() {
 
 
         if (user) {
+			
+			if(newusername && newbio===""){
+				user.updateProfile({
+				  displayName: newusername
+				}).then(function() {
+					showsnackbar("Perfil editado.");
+					window.location.replace('http://localhost/luxvilla-web/profile/');
+					window.location.assign('http://localhost/luxvilla-web/profile/');
+					window.location.href = 'http://localhost/luxvilla-web/profile/';
+				}, function(error) {
+				  // An error happened.
+					console.log(error.message);
+				});
+			}
+			
+			if(newbio && newusername===""){
+				firebase.database().ref('users/' + user.uid+'/user_bio').set(
+					newbio
+				).then(function(){
+					showsnackbar("Perfil editado.");
+					window.location.replace('http://localhost/luxvilla-web/profile/');
+					window.location.assign('http://localhost/luxvilla-web/profile/');
+					window.location.href = 'http://localhost/luxvilla-web/profile/';
+				}, function(error){
+					console.log(error.message);
+				});
 
-          // User is signed in.
-/*
-          var displayName = user.displayName;
+				
+			}
 
-          var email = user.email;
-
-          var emailVerified = user.emailVerified;
-
-          var photoURL = user.photoURL;
-
-          var isAnonymous = user.isAnonymous;
-
-          var uid = user.uid;
-
-          var providerData = user.providerData;*/
-
-          // [START_EXCLUDE]
-
-          // [END_EXCLUDE]
-		  var userId = user.uid;
-		  firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-  var currentusername = snapshot.val().user_name;
-  var currentuserbio =  snapshot.val().user_bio;
-  
-  if(newusername && newbio){
-			  firebase.database().ref('users/' + userId).set({
-    			user_name: newusername,
-    			user_bio: newbio
-
-  		  	  });
-			  showsnackbar("Perfil editado.");
-			  
-		  }
-		  
-		  if(newusername && newbio ===""){
-			  firebase.database().ref('users/' + userId).set({
-    			user_name: newusername,
-				user_bio: currentuserbio
-  		  	  });
-			  showsnackbar("Perfil editado.");
-		  }
-		  
-		  if(newusername ==="" && newbio){
-			  firebase.database().ref('users/' + userId).set({
-    			user_name: currentusername,
-				user_bio: newbio
-  		  	  });
-			  showsnackbar("Perfil editado.");
-		  }
-		  
-		  if(newusername ==="" && newbio ===""){
-			  window.location.replace('http://localhost/luxvilla-web/profile/');
-window.location.assign('http://localhost/luxvilla-web/profile/');
-window.location.href = 'http://localhost/luxvilla-web/profile/';
-		  }
-
-  // ...
-});
         }else{
 			showsnackbar("Para editar precisa de fazer login.");
 
 		}
-
-        // [END_EXCLUDE]
 
       });
 	}
@@ -465,46 +446,37 @@ window.location.href = 'http://localhost/luxvilla-web/profile/';
 		"use strict";
 		var usernametext=document.getElementById('username');
 		var userbiotext=document.getElementById('userbio');
+		var userphoto=document.getElementById('profileimage');
 		firebase.auth().onAuthStateChanged(function(user) {
 
-        // [END_EXCLUDE]
-
         if (user) {
+			
+			user.providerData.forEach(function (profile) {
+				
+				usernametext.innerHTML="@"+profile.displayName;
+				document.title=profile.displayName+" - Perfil";
+				
+				firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+					  var userbio =  snapshot.val().user_bio;
+					  userbiotext.innerHTML=userbio;
 
-          // User is signed in.
-/*
-          var displayName = user.displayName;
-
-          var email = user.email;
-
-          var emailVerified = user.emailVerified;
-
-          var photoURL = user.photoURL;
-
-          var isAnonymous = user.isAnonymous;
-
-          var uid = user.uid;
-
-          var providerData = user.providerData;*/
-
-          // [START_EXCLUDE]
-
-          // [END_EXCLUDE]
-	  	  var userId = user.uid;
-return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-  var username = snapshot.val().user_name;
-  var userbio =  snapshot.val().user_bio;
-  usernametext.innerHTML="@"+username;
-  userbiotext.innerHTML=userbio;
-  document.title=username+" - Perfil";
-  
-  $("#preloader").hide();
-  $("#profilename").show();
-  $("#preloaderinfo").hide();
-  $("#conteudo").show();
-
-  // ...
-});
+				});
+				
+				if(profile.photoURL!==null){
+					userphoto.src=profile.photoURL;
+				}
+				
+				/*console.log("Sign-in provider: "+profile.providerId);
+				console.log("  Provider-specific UID: "+profile.uid);
+				console.log("  Name: "+profile.displayName);
+				console.log("  Email: "+profile.email);
+				console.log("  Photo URL: "+profile.photoURL);*/
+            });
+			
+			$("#preloader").hide();
+			$("#profilename").show();
+			$("#preloaderinfo").hide();
+			$("#conteudo").show();
 
         }else{
 			$("#preloader").hide();
@@ -518,14 +490,6 @@ return firebase.database().ref('/users/' + userId).once('value').then(function(s
 
       });
 		
-}
-
-function signupuserdata(userId, username){
-	"use strict";
-	firebase.database().ref('users/' + userId).set({
-    user_name: username,
-    user_bio: "Para adicionar uma bio edite o perfil."
-  });
 }
 	
 	function showsnackbar(text){
@@ -562,6 +526,12 @@ function signupuserdata(userId, username){
       	var password = document.getElementById('password').value;
 		var repeatpassword = document.getElementById('rppassword').value;
 		
+		if(username.length===0){
+			snackbartext="Por favor introduza um nome de utilizador.";
+		    showsnackbar(snackbartext);
+			return;
+		}
+		
       if (email.length===0) {
 			snackbartext="Por favor introduza um indereço de e-mail.";
 		    showsnackbar(snackbartext);
@@ -588,21 +558,24 @@ function signupuserdata(userId, username){
 	  }
 		
 		firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user){
-			var userId = user.uid;
-		  	signupuserdata(userId, username);
+		  	user.updateProfile({
+				 displayName: newusername
+			}).then(function() {
+				
+			}, function(error) {
+				console.log(error.message);
+			});
+
 		  
 		  	window.location.replace('http://localhost/luxvilla-web');
 			window.location.assign('http://localhost/luxvilla-web');
 			window.location.href = 'http://localhost/luxvilla-web';
     }).catch(function(error) {
 
-        // Handle Errors here.
 
         var errorCode = error.code;
 
         var errorMessage = error.message;
-
-        // [START_EXCLUDE]
 
         if (errorCode === 'auth/weak-password') {
 
@@ -617,7 +590,6 @@ function signupuserdata(userId, username){
 
         console.log(error);
 
-        // [END_EXCLUDE]
       });
 	  
 	  
@@ -663,37 +635,21 @@ function signupuserdata(userId, username){
         // [END_EXCLUDE]
 
         if (user) {
+			/*user.providerData.forEach(function (profile) {
+            console.log("Sign-in provider: "+profile.providerId);
+            console.log("  Provider-specific UID: "+profile.uid);
+            console.log("  Name: "+profile.displayName);
+            console.log("  Email: "+profile.email);
+            console.log("  Photo URL: "+profile.photoURL);
+        });*/
 
-          // User is signed in.
-/*
-          var displayName = user.displayName;
-
-          var email = user.email;
-
-          var emailVerified = user.emailVerified;
-
-          var photoURL = user.photoURL;
-
-          var isAnonymous = user.isAnonymous;
-
-          var uid = user.uid;
-
-          var providerData = user.providerData;*/
-
-          // [START_EXCLUDE]
-
-          // [END_EXCLUDE]
 	  	  usersignedin();
 
         }else{
 			usernotsignedin();
 		}
 
-        // [END_EXCLUDE]
-
       });
-
-      // [END authstatelistener]
 
 
 var signinbutton=document.getElementById('signin');
@@ -701,8 +657,6 @@ var signinbutton=document.getElementById('signin');
 var signupbutton=document.getElementById('signup');
 
 var editbutton=document.getElementById('edit');
-
-var addcasa=document.getElementById('adicionar');
 
 if(signinbutton!==null){
 	signinbutton.addEventListener('click', toggleSignIn, false);
@@ -714,13 +668,6 @@ if(signupbutton !==null){
 if(editbutton !==null){
 	editbutton.addEventListener('click', editprofile, false);
 }
-if(addcasa !==null){
-	addcasa.addEventListener('click', adicionarcasa, false);
-}
-
-      /*document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);*/
-
-     /* document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);*/
 
     }
 

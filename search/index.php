@@ -33,12 +33,23 @@
 
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="../javascript/javascript.js"></script>
+<script type="text/javascript" src="../javascript/javascript.min.js"></script>
 <script type="text/javascript" src="../javascript/epggea.js"></script>
+
+<script>
+$(document).ready(function(){
+
+	// hide #back-top first
+	$("#float").addClass("float-hidden");
+	
+
+});
+</script>
+
 </head>
 
-<body bgcolor="#f2f4f5">
-<div style="min-height:10px;" id="top">
+<body bgcolor="#f2f4f5" style="display: flex; min-height: 100vh; flex-direction: column;">
+<div style="min-height:10px;" id="inicio">
 <header class="nav-down">
 <ul class="menu" id="menusite">
   <li ><a href="http://localhost/luxvilla-web/"><img src="../favicon.ico"></a></li>
@@ -66,7 +77,7 @@
 </ul>
 </header>
 </div>
-<div style="background:#f2f4f5; width:100%; min-height:75vh; margin-top:10px; padding-bottom:10px; overflow: hidden; padding-top:90px;">
+<div style="background:#f2f4f5; width:100%; height: auto; margin-top:10px; padding-bottom:10px; overflow: hidden; padding-top:90px; flex: 1 0 auto;">
 
 <?php
 
@@ -198,7 +209,6 @@ mysqli_close($conn);
           </font>
           </div>
    </a></div>
-&nbsp;
 <div>
        <a target="new" href="https://github.com/brunomassa/LuxVilla" style="text-decoration:none;">
        <div class="btnfooter wave light">
@@ -208,9 +218,11 @@ mysqli_close($conn);
 </div>
         </div>
 </div>
-<p class="backtop-hidden" id="back-top">
-		<a href="#top"><span></span></a>
-	</p>
+<div class="subfooter" style="background-color:#3D121C; z-index: auto; min-height: 40px;"><div style="position: relative;top: 50%;transform: translateY(-50%);">Luxvilla &copy; 2017</div></div>
+<a href="#inicio" id="float">
+  <br>
+<i class="material-icons">keyboard_arrow_up</i>
+</a>
     <div id="snackbar"></div>
 </body>
 </html>

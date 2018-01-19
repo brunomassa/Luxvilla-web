@@ -16,21 +16,19 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       
-      <script type="text/javascript" src="../javascript/javascript.js"></script>
+      <script type="text/javascript" src="../javascript/javascript.min.js"></script>
       <script type="text/javascript" src="../javascript/epggea.js"></script>
       
       <style>
 	  
 	  .centered {
-  position: absolute;
-  text-align:left;
-  padding-left:30%;
-  padding-right:30%;
-  padding-top:1%;
-  width:100%;
-  height:100%;
+  		  width: 100%; 
+		  background-color: #FFF; 
+		  display: flex; 
+		  flex-direction: column; 
+		  justify-content: center;
 }
-
+/*
 @media screen and (max-width:680px){
 	.centered {
   position: absolute;
@@ -41,7 +39,7 @@
   width:100%;
   height:100%;
 }
-}
+}*/
 	  
    /* label focus color */
    .input-field input[type=email]:focus + label {
@@ -69,13 +67,134 @@
    .input-field input[type=text]:focus {
      border-bottom: 1px solid #651D31;
      box-shadow: 0 1px 0 0 #651D31;
+	   
+   
    }
+	/*HR*/	  
+	
+	    .strike {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+		margin-left: 30%; 
+		margin-right: 30%;
+    }
+		  
+	@media screen and (max-width:680px){
+	.strike {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+		margin-left: 0; 
+		margin-right: 0;
+    }
+}
+
+    .strike > span {
+        position: relative;
+        display: inline-block;
+    }
+	
+    .strike > span:before,
+    .strike > span:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 9999px;
+        height: 1px;
+        background: black;
+    }
+
+    .strike > span:before {
+        right: 100%;
+        margin-right: 15px;
+    }
+
+    .strike > span:after {
+        left: 100%;
+        margin-left: 15px;
+    }	  
+		  
+   /*Google button*/
+
+   .google-button {
+  height: 40px;
+  border-width: 0;
+  background: white;
+  color: #737373;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+  -webkit-transition-property: background-color, box-shadow;
+  transition-property: background-color, box-shadow;
+  -webkit-transition-duration: 150ms;
+          transition-duration: 150ms;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  padding: 0;
+}
+ .google-button:hover {
+  box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
+}
+.google-button:active {
+  background-color: #e5e5e5;
+  box-shadow: none;
+  -webkit-transition-duration: 10ms;
+          transition-duration: 10ms;
+}
+
+.google-button__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+}
+
+.google-button__icon--plus {
+  width: 27px;
+}
+
+.google-button__text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto',arial,sans-serif;
+}
         
 	  </style>
       
       <script>
 	  $(document).ready(function(e) {
         document.addEventListener("keydown",enterpress,false);
+		  
+		  firebase.auth().getRedirectResult().then(function(result) {
+	  if (result.credential) {
+		// This gives you a Google Access Token. You can use it to access the Google API.
+		var token = result.credential.accessToken;
+		var user=result.user;
+		window.location.replace('http://localhost/luxvilla-web');
+		window.location.assign('http://localhost/luxvilla-web');
+		window.location.href = 'http://localhost/luxvilla-web';
+	  }
+	  // The signed-in user info.
+	  //var user = result.user;
+		  
+	}).catch(function(error) {
+	  // Handle Errors here.
+	  var errorCode = error.code;
+	  var errorMessage = error.message;
+	  // The email of the user's account used.
+	  var email = error.email;
+	  // The firebase.auth.AuthCredential type that was used.
+	  var credential = error.credential;
+	  // ...
+	});
       });
 	  
 	  function enterpress(e){
@@ -87,7 +206,7 @@
 	  </script>
 </head>
 
-<body bgcolor="#FFF">
+<body bgcolor="#f1f1f1">
       <div class="centered">
       <div style="text-align:center;">
       <img src="../logo.jpg" alt="Avatar" width="300px" height="300px">
@@ -96,22 +215,36 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" name="email" class="validate" onKeyPress="return enterpress(event)" autofocus required>
+          <input id="email" type="email" name="email" size="40" class="validate" onKeyPress="return enterpress(event)" autofocus required>
           <label for="email" data-error="Please insert a valid email" data-success="">Email</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" name="password" class="validate" onKeyPress="return enterpress(event)" required>
+          <input id="password" type="password" name="password" size="40" class="validate" onKeyPress="return enterpress(event)" required>
           <label for="password"  data-error="Please insert a password" data-success="">Password</label>
         </div>
       </div>
       <button type="button" style="display:block; margin:auto; background-color:#651D31" class="btn waves-effect waves-light" name="signin" id="signin">Log In
   </button>
-        
     </form>
   </div>
-  <div style="width:100%; height:5px;"></div>
+  
+  <div class="strike">
+    <span>OU</span>
+  </div>
+  
+  <div class="center" style="margin-top: 15px; width: 100%; background-color: #f1f1f1">
+  <br>
+  <button type="button" class="google-button" onClick="GoogleSignIn()">
+  <span class="google-button__icon">
+    <svg viewBox="0 0 366 372" xmlns="http://www.w3.org/2000/svg"><path d="M125.9 10.2c40.2-13.9 85.3-13.6 125.3 1.1 22.2 8.2 42.5 21 59.9 37.1-5.8 6.3-12.1 12.2-18.1 18.3l-34.2 34.2c-11.3-10.8-25.1-19-40.1-23.6-17.6-5.3-36.6-6.1-54.6-2.2-21 4.5-40.5 15.5-55.6 30.9-12.2 12.3-21.4 27.5-27 43.9-20.3-15.8-40.6-31.5-61-47.3 21.5-43 60.1-76.9 105.4-92.4z" id="Shape1" fill="#EA4335"></path><path d="M20.6 102.4c20.3 15.8 40.6 31.5 61 47.3-8 23.3-8 49.2 0 72.4-20.3 15.8-40.6 31.6-60.9 47.3C1.9 232.7-3.8 189.6 4.4 149.2c3.3-16.2 8.7-32 16.2-46.8z" id="Shape2" fill="#FBBC05"></path><path d="M361.7 151.1c5.8 32.7 4.5 66.8-4.7 98.8-8.5 29.3-24.6 56.5-47.1 77.2l-59.1-45.9c19.5-13.1 33.3-34.3 37.2-57.5H186.6c.1-24.2.1-48.4.1-72.6h175z" id="Shape3" fill="#4285F4"></path><path d="M81.4 222.2c7.8 22.9 22.8 43.2 42.6 57.1 12.4 8.7 26.6 14.9 41.4 17.9 14.6 3 29.7 2.6 44.4.1 14.6-2.6 28.7-7.9 41-16.2l59.1 45.9c-21.3 19.7-48 33.1-76.2 39.6-31.2 7.1-64.2 7.3-95.2-1-24.6-6.5-47.7-18.2-67.6-34.1-20.9-16.6-38.3-38-50.4-62 20.3-15.7 40.6-31.5 60.9-47.3z" fill="#34A853"></path></svg>
+  </span>
+  <span class="google-button__text">Log In com Google</span>
+</button>
+<br>
+<br>
+ </div>
    </div>
    <div id="snackbar"></div>  
 </body>
